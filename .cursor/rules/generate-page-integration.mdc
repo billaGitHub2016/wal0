@@ -1,0 +1,203 @@
+---
+description: compoder generate:page-integration
+globs: 
+---
+# Page Integration Code Generation Guide
+
+This guide helps generate the integration layer between business components and APIs, including server-store and page components.
+
+## Input Requirements
+
+1. Business Component Usage Examples (以下任一形式):
+
+   - Component Story file (e.g., `ComponentName.stories.tsx`)
+   - Mock implementation in existing pages (e.g., `page.tsx` with mock data)
+   - Example usage with hardcoded data
+   - Test files showing component usage
+
+   Example:
+
+   ```typescript
+   // From stories
+   export const Default = {
+     args: {
+       items: mockItems,
+       onEditClick: (id) => console.log('Edit:', id)
+     }
+   }
+
+   // Or from page with mock data
+   <ComponentName
+     items={[
+       { id: '1', title: 'Item 1' },
+       { id: '2', title: 'Item 2' }
+     ]}
+     onEditClick={(id) => console.log('Edit clicked:', id)}
+   />
+   ```
+
+2. Component Interface Information (one of the following):
+
+   - Interface/type definition files
+   - Props types from component file
+   - TypeScript types inferred from usage examples
+
+3. API Related Files:
+   - Service file (e.g., `*.service.ts`) containing API calls
+   - API types (request/response types)
+
+## Output Structure
+
+Important Note: When generating code for existing files:
+
+- NEVER remove or replace existing selectors/mutations
+- ONLY add new selectors/mutations incrementally
+- Preserve all existing functionality
+- Follow the existing patterns and naming conventions
+
+The generator should create or update the following files:
+
+### 1. server-store/selectors.ts (if needed)
+
+- Create query hooks using @tanstack/react-query
+- Transform API response data to match component prop types in the select function
+- Example structure:
+
+Example of a new selector (while keeping existing ones):
+
+```typescript
+// Original example - keep this
+export const useGetSomeData = (params: ApiType.Request) => {
+  return useQuery<
+    ApiType.Response,
+    Error,
+    ComponentDataType // Transformed type matching component props
+  >({
+    queryKey: ["queryName", params],
+    queryFn: () => apiCall(params),
+    select: data => ({
+      // Transform API response to component data structure
+      ...transformedData,
+    }),
+  })
+}
+
+// When adding new selectors, add them below existing ones
+export const useNewSelector = () => {
+  return useQuery({
+    // ... new selector implementation
+  })
+}
+```
+
+### 2. server-store/mutations.ts (if needed)
+
+Example of mutations (while keeping existing ones):
+
+```typescript
+// Original example - keep this
+export const useSomeDataMutation = () => {
+  return useMutation<ApiType.Response, Error, ApiType.Request>({
+    mutationFn: params => apiMutationCall(params),
+  })
+}
+
+// When adding new mutations, add them below existing ones
+export const useNewMutation = () => {
+  return useMutation({
+    // ... new mutation implementation
+  })
+}
+```
+
+### 3. page.tsx
+
+Integrate the business component with server-store:
+
+```typescript
+export default function Page() {
+  // 1. Use selectors/mutations
+  const { data, isLoading } = useGetSomeData(params)
+  const mutation = useSomeDataMutation()
+
+  // 2. Handle component callbacks
+  const handleSomeEvent = () => {
+    mutation.mutate(...)
+  }
+
+  // 3. Render component with props
+  return (
+    <BusinessComponent
+      data={data}
+      isLoading={isLoading}
+      onSomeEvent={handleSomeEvent}
+      {...otherProps}
+    />
+  )
+}
+```
+
+## Key Points to Consider
+
+1. Data Transformation:
+
+   - Ensure proper type conversion between API and component data structures
+   - Handle null/undefined cases
+   - Transform IDs, dates, and other special fields appropriately
+
+2. Error Handling:
+
+   - Include error states and error handling in queries/mutations
+   - Provide appropriate error feedback in the UI
+
+3. Loading States:
+
+   - Handle loading states properly
+   - Consider skeleton loaders or loading indicators
+
+4. Props Mapping:
+
+   - Map all required component props
+   - Provide reasonable defaults when needed
+   - Handle optional props appropriately
+
+5. Event Handlers:
+   - Implement all necessary callback functions
+   - Handle async operations properly
+   - Consider optimistic updates when appropriate
+
+## Example Usage
+
+Given:
+
+- A CodegenFilterContainer component
+- Codegen service API
+- Related interfaces
+
+Generate:
+
+1. A selector for fetching codegen data
+2. Mutations for any data modifications
+3. A page component that:
+   - Fetches data using the selector
+   - Handles pagination/filtering
+   - Renders the CodegenFilterContainer with appropriate props
+   - Implements all necessary callbacks
+
+The generated code should follow the project's existing patterns and naming conventions.
+
+## Additional Guidelines for Incremental Updates
+
+1. Code Preservation:
+
+   - Always check existing files before adding new code
+   - Never remove or modify existing selectors/mutations
+   - Add new functionality below existing code
+   - Maintain consistent formatting with existing code
+
+2. Integration Strategy:
+
+   - Review existing patterns in the codebase
+   - Follow established naming conventions
+   - Reuse existing utility functions when possible
+   - Add new functionality incrementally

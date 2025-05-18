@@ -1,0 +1,36 @@
+# 非 host 版本, 不使用本机代理
+version: "3.3"
+services:
+  compoder-mongo:
+    image: mongo:5.0.18
+    container_name: compoder-mongo
+    restart: always
+    ports:
+      - 27017:27017
+    networks:
+      - compoder
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=username
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./database/data:/data/db
+  # compoder:
+  #   container_name: compoder
+  #   image: compoder:latest
+  #   ports:
+  #     - 3000:3000
+  #   networks:
+  #     - compoder
+  #   depends_on:
+  #     - compoder-mongo
+  #   restart: always
+  #   environment:
+  #     # DB
+  #     - MONGODB_URI=mongodb://username:password@compoder-mongo:27017/compoder?authSource=admin
+
+  #     # github sso
+  #     - NEXTAUTH_SECRET=PEQER9wxJzUNzJ851Z/jUWoLt9ioQqzqU/J/f0lg=
+  #     - GITHUB_ID=44a551a3154fcc25d6
+  #     - GITHUB_SECRET=72571b95571c28fd7e12b080fc5a56a6de11
+networks:
+  compoder:

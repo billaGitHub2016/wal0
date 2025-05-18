@@ -1,0 +1,66 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css")
+    title Component Preview
+    style.
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      iframe {
+        display: block;
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+  script.
+    var componentObj = !{JSON.stringify(componentData)};
+    
+    addEventListener("load", function () {
+      console.log("onLoad event triggered");
+      const codes = componentObj.files.reduce((acc, file) => {
+        if (file.content) {
+          acc[file.name] = file.content;
+        }
+        if (file.children) {
+          file.children.forEach(child => {
+            if (child.content) {
+              acc[child.name] = child.content;
+            }
+          });
+        }
+        return acc;
+      }, {});
+      
+      const entryFile = componentObj.files.find(file => file.isEntryFile)?.name || "App.tsx";
+
+      setTimeout(() => {
+        document.getElementById("iframe").contentWindow.postMessage(
+          {
+            type: "artifacts",
+            data: {
+              files: codes,
+              entryFile: entryFile,
+            },
+          },
+          "http://localhost:3001"
+        );
+      }, 100);
+    });
+
+    function iframeLoaded() {
+      console.log("iframe loaded");
+    }
+
+  body
+    iframe#iframe(
+      src="http://localhost:3001"
+      title="Code Preview"
+      style="height: 100vh; width: 100vw"
+      load="iframeLoaded"
+      border="0"
+    )

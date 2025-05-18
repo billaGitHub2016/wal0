@@ -1,0 +1,50 @@
+# Open Source License
+
+Compoder is licensed under the Apache License 2.0, with the following additional conditions:
+
+1. Usage Terms:
+
+a. Personal Use: Compoder is free for personal use, including commercial activities by individuals.
+
+b. Corporate/Organizational Commercial Use: Any commercial use of Compoder by companies, organizations, or institutions requires obtaining a commercial license from the producer. This includes but is not limited to:
+
+- Using Compoder in a business/organizational environment
+- Organizations using Compoder to generate code components for commercial purposes
+- Companies integrating Compoder into commercial products or services
+- Organizations operating Compoder as a service for others
+- Any revenue-generating activities involving Compoder by companies or organizations
+
+c. Course Student Exception: Students who have enrolled in the author's course at https://ai.iamlv.cn/video-cursor.html are considered to have obtained a commercial license for Compoder and are exempt from the restrictions in section 1.b above. Please contact the instructor, and the commercial license will be sent to you via lv.xbb.xmn@gmail.com.
+
+Please contact lv.xbb.xmn@gmail.com to inquire about commercial licensing.
+
+2. Additional Restrictions:
+
+a. LOGO and copyright information: In the process of using Compoder's frontend, you may not remove or modify the LOGO or copyright information in the Compoder console or applications. This restriction is inapplicable to uses of Compoder that do not involve its frontend. - Frontend Definition: For the purposes of this license, the "frontend" of Compoder includes all components located in the `components/biz/` and `artifacts/` directories when running Compoder from the raw source code, or the web image when running Compoder with Docker, including the component generation interface and all AI-powered features.
+
+b. AI Model Integration: While Compoder provides integration with various AI models and features (including but not limited to OpenAI and Anthropic models), users must obtain their own API keys and comply with the respective model providers' terms of service.
+
+3. As a contributor, you should agree that:
+
+a. The producer can adjust the open-source agreement to be more strict or relaxed as deemed necessary.
+b. Your contributed code may be used for commercial purposes, including but not limited to its cloud business operations and AI-powered features.
+
+Apart from the specific conditions mentioned above, all other rights and restrictions follow the Apache License 2.0. Detailed information about the Apache License 2.0 can be found at http://www.apache.org/licenses/LICENSE-2.0.
+
+The AI-powered component generation technology and workflow design of this product is protected by intellectual property rights.
+
+© 2025 [Compoder]
+
+---
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

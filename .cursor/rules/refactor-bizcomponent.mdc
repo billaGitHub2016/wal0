@@ -1,0 +1,13 @@
+---
+description: compoder refactor:bizcomponent
+globs: 
+---
+Please refer to the file structure in the /components/biz/StorybookExample directory:
+
+- index.tsx
+- interface.ts
+- [ComponentName].stories.tsx
+- [ComponentName].tsx
+- helper.ts (optional)
+
+Refactor the code below:

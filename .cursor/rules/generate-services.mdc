@@ -1,0 +1,157 @@
+---
+description: compoder generate:services
+globs: 
+---
+# Service Layer Code Generation Rules
+
+## Input Files Pattern
+
+- `@/app/api/{module}/types.d.ts`: Contains API interface definitions
+- `@/app/api/{module}/{action}/route.ts`: Contains API route implementations
+
+## Output Files Pattern
+
+- `@/app/services/{module}/{module}.service.ts`: Service layer implementation
+
+## Generation Rules
+
+1. Service File Structure:
+
+```typescript
+import { getInstance } from '../request'
+import { {ModuleName}Api } from '@/app/api/{module}/types'
+
+const request = getInstance()
+
+export const {actionName}{ModuleName} = async (
+  params: {ModuleName}Api.{Action}Request
+): Promise<{ModuleName}Api.{Action}Response> => {
+  try {
+    // For GET requests
+    if ("{method}" === "GET") {
+      const filteredParams = Object.fromEntries(
+        Object.entries(params).filter(([, value]) => value !== undefined)
+      )
+      const queryString = new URLSearchParams(
+        filteredParams as Record<string, string>
+      ).toString()
+      const response = await request(`/{module}/{action}?${queryString}`, {
+        method: "GET",
+      })
+      return await response.json()
+    }
+
+    // For POST/PUT requests
+    if ("{method}" === "POST" || "{method}" === "PUT") {
+      const response = await request(`/{module}/{action}`, {
+        method: "{method}",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(params),
+      })
+      return await response.json()
+    }
+
+    // For DELETE requests
+    if ("{method}" === "DELETE") {
+      const response = await request(`/{module}/{action}`, {
+        method: "DELETE",
+      })
+      return await response.json()
+    }
+
+    throw new Error(`Unsupported HTTP method: {method}`)
+  } catch (error) {
+    // Error will be handled by request.ts
+    throw error
+  }
+}
+```
+
+2. Function Naming Convention:
+
+- For GET endpoints: use `get{ModuleName}{Action}` (e.g., `getUserList`, `getOrderDetail`)
+- For POST endpoints: use `create{ModuleName}`
+- For PUT endpoints: use `update{ModuleName}`
+- For DELETE endpoints: use `delete{ModuleName}`
+
+3. Type Definition Pattern:
+
+```typescript
+declare namespace {ModuleName}Api {
+  export interface {Action}Request {
+    // Request parameters
+  }
+
+  export interface {Action}Response {
+    // Response data structure
+  }
+}
+```
+
+## Variables Explanation
+
+- `{module}`: The lowercase module name (e.g., "user", "order", "codegen")
+- `{ModuleName}`: The PascalCase module name (e.g., "User", "Order", "Codegen")
+- `{action}`: The action name (e.g., "list", "detail", "create")
+- `{Action}`: The PascalCase action name (e.g., "List", "Detail", "Create")
+- `{method}`: HTTP method in lowercase (e.g., "get", "post", "put", "delete")
+- `{requestConfig}`: Request configuration object based on HTTP method:
+  - GET: `{ params }`
+  - POST/PUT: `data`
+  - DELETE: `{ params }` or empty
+
+## Example
+
+For a module named "codegen" with a "list" action:
+
+Input types.d.ts:
+
+```typescript
+declare namespace CodegenApi {
+  export interface ListRequest {
+    page: number
+    pageSize: number
+    name?: string
+    fullStack?: "React" | "Vue"
+  }
+
+  export interface ListResponse {
+    data: any[]
+    total: number
+  }
+}
+```
+
+Generated service.ts:
+
+```typescript
+import { getInstance } from "../request"
+import { CodegenApi } from "@/app/api/codegen/types"
+
+const request = getInstance()
+
+export const getCodegenList = async (
+  params: CodegenApi.ListRequest,
+): Promise<CodegenApi.ListResponse> => {
+  const filteredParams = Object.fromEntries(
+    Object.entries(params).filter(([, value]) => value !== undefined),
+  )
+  const queryString = new URLSearchParams(
+    filteredParams as Record<string, string>,
+  ).toString()
+  const response = await request(`/codegen/list?${queryString}`, {
+    method: "GET",
+  })
+  return response.json()
+}
+```
+
+## Notes
+
+1. For GET requests, transform parameters into URL query string
+2. Filter out undefined values from parameters
+3. Use URLSearchParams for proper URL encoding
+4. Use proper error handling and async/await patterns
+5. Keep service functions focused and single-responsibility

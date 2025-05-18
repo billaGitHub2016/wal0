@@ -1,0 +1,683 @@
+<ComponentArtifact name="LoginPage"><ComponentFile fileName="App.tsx" isEntryFile="true">
+    import { CyberLoginPage } from './CyberLoginPage';
+    
+    export default function App() {
+      return <CyberLoginPage />;
+    }
+  </ComponentFile>
+<ComponentFile fileName="LoginPage.tsx" isEntryFile="false">
+    import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+    import { Input } from "@/components/ui/input";
+    import { Label } from "@/components/ui/label";
+    import { Button } from "@/components/ui/button";
+    import { Checkbox } from "@/components/ui/checkbox";
+    import { useState } from "react";
+    import { motion } from "framer-motion";
+
+    export const LoginPage = () => {
+      const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+      const [rememberMe, setRememberMe] = useState(false);
+
+      const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Handle login logic here
+        console.log({ email, password, rememberMe });
+      };
+
+      return (
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-rose-900 to-gray-900">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card className="w-full max-w-md bg-gray-800/50 backdrop-blur-md border border-gray-700/50 rounded-xl shadow-xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-pink-500/10 pointer-events-none" />
+              <CardHeader>
+                <CardTitle className="text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-pink-400">
+                  Welcome Back
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-3">
+                    <Label htmlFor="email" className="text-gray-300 font-medium flex items-center">
+                      <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
+                        Email Address
+                      </span>
+                    </Label>
+                    <motion.div whileHover={{ scale: 1.01 }}>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="your@email.com"
+                        required
+                        className="bg-gray-800/70 border-gray-700 text-white placeholder-gray-500 focus:ring-2 focus:ring-rose-500/50 focus:border-transparent rounded-lg py-5 px-4 transition-all duration-300"
+                      />
+                    </motion.div>
+                  </div>
+                  <div className="space-y-3">
+                    <Label htmlFor="password" className="text-gray-300 font-medium flex items-center">
+                      <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
+                        Password
+                      </span>
+                    </Label>
+                    <motion.div whileHover={{ scale: 1.01 }}>
+                      <Input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="••••••••"
+                        required
+                        className="bg-gray-800/70 border-gray-700 text-white placeholder-gray-500 focus:ring-2 focus:ring-rose-500/50 focus:border-transparent rounded-lg py-5 px-4 transition-all duration-300"
+                      />
+                    </motion.div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="remember"
+                        checked={rememberMe}
+                        onCheckedChange={(checked) => setRememberMe(!!checked)}
+                        className="border-gray-600 bg-gray-800/70 data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-rose-500 data-[state=checked]:to-pink-500"
+                      />
+                      <Label htmlFor="remember" className="text-gray-400 hover:text-gray-300 cursor-pointer transition-colors">
+                        Remember me
+                      </Label>
+                    </div>
+                    <a href="#" className="text-sm text-rose-400 hover:text-rose-300 transition-colors">
+                      Forgot password?
+                    </a>
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      type="submit" 
+                      className="w-full py-5 rounded-lg bg-gradient-to-r from-rose-600 to-pink-600 text-white font-medium text-sm uppercase tracking-wider shadow-lg hover:shadow-rose-500/20 transition-all duration-300"
+                    >
+                      Sign In
+                    </Button>
+                  </motion.div>
+                </form>
+                <div className="mt-6 text-center">
+                  <p className="text-gray-500 text-sm">
+                    New here?{' '}
+                    <a href="#" className="text-rose-400 hover:text-rose-300 font-medium transition-colors">
+                      Create an account
+                    </a>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      );
+    };
+  </ComponentFile>
+<ComponentFile fileName="interface.ts" isEntryFile="false">
+    // No specific interfaces needed for this component
+  </ComponentFile>
+<ComponentFile fileName="CyberLoginPage.tsx" isEntryFile="false">
+    import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+    import { Input } from "@/components/ui/input";
+    import { Label } from "@/components/ui/label";
+    import { Button } from "@/components/ui/button";
+    import { Checkbox } from "@/components/ui/checkbox";
+    import { useState } from "react";
+    import { motion, AnimatePresence } from "framer-motion";
+    import { useToast } from '@/hooks/use-toast';
+
+    export const CyberLoginPage = () => {
+      const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+      const [rememberMe, setRememberMe] = useState(false);
+      const [isHovering, setIsHovering] = useState(false);
+      const [activeInput, setActiveInput] = useState<string | null>(null);
+      const [emailError, setEmailError] = useState("");
+      const [passwordError, setPasswordError] = useState("");
+      const [showSuccess, setShowSuccess] = useState(false);
+
+      const validateEmail = (email: string) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      };
+
+      const {toast} = useToast();
+
+      const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        toast({
+          title: "Scheduled: Catch up",
+          description: "Friday, February 10, 2023 at 5:57 PM",
+        })
+        // Reset errors
+        setEmailError("");
+        setPasswordError("");
+        setShowSuccess(false);
+        
+        // Validate email
+        if (!email) {
+          setEmailError("Email is required");
+          return;
+        }
+        
+        if (!validateEmail(email)) {
+          setEmailError("Please enter a valid email address");
+          return;
+        }
+        
+        // Validate password
+        if (!password) {
+          setPasswordError("Password is required");
+          return;
+        }
+        
+        // If all validations pass
+        console.log({ email, password, rememberMe });
+        setShowSuccess(true);
+      };
+
+      const cyberGlowVariants = {
+        initial: { opacity: 0.3, scale: 0.95 },
+        hover: { opacity: 0.6, scale: 1.05 },
+        tap: { opacity: 0.8, scale: 0.98 }
+      };
+
+      const inputFocusVariants = {
+        focused: { 
+          boxShadow: "0 0 15px #00f7ff80",
+          borderColor: "#00f7ff",
+          backgroundColor: "rgba(0, 247, 255, 0.05)"
+        },
+        unfocused: {
+          boxShadow: "0 0 5px #00f7ff20",
+          borderColor: "rgba(0, 247, 255, 0.3)",
+          backgroundColor: "rgba(0, 0, 0, 0.7)"
+        },
+        error: {
+          boxShadow: "0 0 15px #ff000080",
+          borderColor: "#ff0000",
+          backgroundColor: "rgba(255, 0, 0, 0.05)"
+        }
+      };
+
+      const scanlineVariants = {
+        initial: { y: -100 },
+        animate: { 
+          y: "100vh",
+          transition: {
+            duration: 4,
+            repeat: Infinity,
+            ease: "linear"
+          }
+        }
+      };
+
+      return (
+        <div className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative">
+          {/* Animated grid background */}
+          <div className="absolute inset-0 overflow-hidden opacity-20">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <motion.div 
+              className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,247,255,0.05),transparent_10%)]"
+              variants={scanlineVariants}
+              initial="initial"
+              animate="animate"
+            />
+          </div>
+          
+          {/* Floating particles */}
+          <AnimatePresence>
+            {Array.from({ length: 20 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-cyan-400"
+                initial={{
+                  x: Math.random() * 100,
+                  y: Math.random() * 100,
+                  opacity: 0,
+                  width: Math.random() * 5 + 1,
+                  height: Math.random() * 5 + 1
+                }}
+                animate={{
+                  x: Math.random() * window.innerWidth,
+                  y: Math.random() * window.innerHeight,
+                  opacity: [0, 0.5, 0],
+                  transition: {
+                    duration: Math.random() * 10 + 10,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }
+                }}
+              />
+            ))}
+          </AnimatePresence>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative z-10"
+          >
+            <Card className="w-full max-w-md bg-black/80 backdrop-blur-sm border-2 border-cyan-400/30 rounded-none shadow-[0_0_30px_#00f7ff33] relative overflow-hidden">
+              {/* Cyberpunk corner decorations with animation */}
+              <motion.div 
+                className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-400"
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              />
+              <motion.div 
+                className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-cyan-400"
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              />
+              <motion.div 
+                className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-cyan-400"
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              />
+              <motion.div 
+                className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-400"
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              />
+              
+              {/* Pulsing border glow */}
+              <motion.div 
+                className="absolute inset-0 border border-transparent"
+                animate={{
+                  boxShadow: [
+                    "0 0 10px #00f7ff20",
+                    "0 0 20px #00f7ff40",
+                    "0 0 10px #00f7ff20"
+                  ]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              <CardHeader>
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <CardTitle className="text-4xl font-bold text-center text-transparent bg-clip-text bg-[linear-gradient(90deg,#00f7ff,#ff00f7)] font-mono tracking-wider">
+                    SYSTEM ACCESS
+                  </CardTitle>
+                </motion.div>
+                <motion.div 
+                  className="h-1 bg-gradient-to-r from-cyan-400 to-pink-400 mt-2"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+                />
+              </CardHeader>
+              
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-3">
+                    <Label htmlFor="email" className="text-cyan-300 font-mono text-sm tracking-wider flex items-center">
+                      <motion.span 
+                        className="text-shadow-[0_0_5px_#00f7ff]"
+                        animate={{
+                          textShadow: [
+                            "0 0 5px #00f7ff",
+                            "0 0 10px #00f7ff",
+                            "0 0 5px #00f7ff"
+                          ]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        EMAIL
+                      </motion.span>
+                    </Label>
+                    <motion.div 
+                      variants={inputFocusVariants}
+                      animate={emailError ? 'error' : activeInput === 'email' ? 'focused' : 'unfocused'}
+                      onHoverStart={() => setIsHovering(true)}
+                      onHoverEnd={() => setIsHovering(false)}
+                    >
+                      <Input
+                        id="email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          if (emailError) setEmailError("");
+                        }}
+                        onFocus={() => setActiveInput('email')}
+                        onBlur={() => {
+                          setActiveInput(null);
+                          if (email && !validateEmail(email)) {
+                            setEmailError("Please enter a valid email address");
+                          }
+                        }}
+                        placeholder="user@neoncity.io"
+                        required
+                        className="bg-black/70 border-2 text-cyan-200 placeholder-cyan-400/50 focus:ring-0 rounded-none font-mono tracking-wider py-4 px-4 transition-all duration-300"
+                      />
+                    </motion.div>
+                    {emailError && (
+                      <motion.p 
+                        className="text-red-400 text-xs font-mono"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        {emailError}
+                      </motion.p>
+                    )}
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <Label htmlFor="password" className="text-cyan-300 font-mono text-sm tracking-wider flex items-center">
+                      <motion.span 
+                        className="text-shadow-[0_0_5px_#00f7ff]"
+                        animate={{
+                          textShadow: [
+                            "0 0 5px #00f7ff",
+                            "0 0 8px #00f7ff",
+                            "0 0 5px #00f7ff"
+                          ]
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        PASSWORD
+                      </motion.span>
+                    </Label>
+                    <motion.div 
+                      variants={inputFocusVariants}
+                      animate={passwordError ? 'error' : activeInput === 'password' ? 'focused' : 'unfocused'}
+                      onHoverStart={() => setIsHovering(true)}
+                      onHoverEnd={() => setIsHovering(false)}
+                    >
+                      <Input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                          if (passwordError) setPasswordError("");
+                        }}
+                        onFocus={() => setActiveInput('password')}
+                        onBlur={() => {
+                          setActiveInput(null);
+                          if (!password) {
+                            setPasswordError("Password is required");
+                          }
+                        }}
+                        placeholder="••••••••"
+                        required
+                        className="bg-black/70 border-2 text-cyan-200 placeholder-cyan-400/50 focus:ring-0 rounded-none font-mono tracking-wider py-4 px-4 transition-all duration-300"
+                      />
+                    </motion.div>
+                    {passwordError && (
+                      <motion.p 
+                        className="text-red-400 text-xs font-mono"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        {passwordError}
+                      </motion.p>
+                    )}
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Checkbox
+                          id="remember"
+                          checked={rememberMe}
+                          onCheckedChange={(checked) => setRememberMe(!!checked)}
+                          className="border-2 border-cyan-400/50 bg-black/70 data-[state=checked]:bg-cyan-400/80 data-[state=checked]:border-cyan-400 rounded-none"
+                        />
+                      </motion.div>
+                      <Label htmlFor="remember" className="text-cyan-300 hover:text-cyan-200 cursor-pointer transition-colors font-mono text-sm tracking-wider">
+                        REMEMBER SESSION
+                      </Label>
+                    </div>
+                    <motion.a 
+                      href="#" 
+                      className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors font-mono tracking-wider"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      KEY RECOVERY
+                    </motion.a>
+                  </div>
+                  
+                  <motion.div
+                    initial="initial"
+                    whileHover="hover"
+                    whileTap="tap"
+                    variants={cyberGlowVariants}
+                    className="relative"
+                    onHoverStart={() => setIsHovering(true)}
+                    onHoverEnd={() => setIsHovering(false)}
+                  >
+                    <motion.div 
+                      className="absolute inset-0 bg-cyan-400/20 blur-md rounded-sm"
+                      animate={{
+                        opacity: [0.3, 0.6, 0.3],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <Button 
+                      type="submit" 
+                      className="w-full py-4 rounded-sm bg-black border-2 border-cyan-400 text-cyan-400 font-mono text-sm uppercase tracking-widest hover:bg-cyan-400/10 transition-all duration-300 relative z-10"
+                      disabled={!!emailError || !!passwordError}
+                    >
+                      <motion.span
+                        animate={{
+                          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                        className="bg-[linear-gradient(90deg,#00f7ff,#ff00f7,#00f7ff)] bg-[length:200%_auto] bg-clip-text text-transparent"
+                      >
+                        ACCESS TERMINAL
+                      </motion.span>
+                    </Button>
+                  </motion.div>
+                </form>
+                
+                <motion.div 
+                  className="mt-6 text-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7, duration: 0.5 }}
+                >
+                  <p className="text-cyan-400/70 text-sm font-mono tracking-wider">
+                    NEW USER?{' '}
+                    <motion.a 
+                      href="#" 
+                      className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      REQUEST CLEARANCE
+                    </motion.a>
+                  </p>
+                </motion.div>
+
+                {/* Success message */}
+                <AnimatePresence>
+                  {showSuccess && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className="mt-4 p-3 bg-green-900/50 border border-green-400 text-green-300 font-mono text-sm rounded-sm"
+                    >
+                      ACCESS GRANTED. WELCOME TO THE SYSTEM.
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      );
+    };
+  </ComponentFile>
+<ComponentFile fileName="LoginForm.tsx" isEntryFile="false">
+    import { Input } from "@/components/ui/input";
+    import { Label } from "@/components/ui/label";
+    import { Button } from "@/components/ui/button";
+    import { Checkbox } from "@/components/ui/checkbox";
+    import { useToast } from "@/hooks/use-toast";
+    import { useState } from "react";
+    import { motion } from "framer-motion";
+
+    export const LoginForm = () => {
+      const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+      const [rememberMe, setRememberMe] = useState(false);
+      const { toast } = useToast();
+
+      const validateEmail = (email: string) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      };
+
+      const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        // Validate email
+        if (!email) {
+          toast({
+            title: "Validation Error",
+            description: "Email is required",
+            variant: "destructive",
+          });
+          return;
+        }
+        
+        if (!validateEmail(email)) {
+          toast({
+            title: "Validation Error",
+            description: "Please enter a valid email address",
+            variant: "destructive",
+          });
+          return;
+        }
+        
+        // Validate password
+        if (!password) {
+          toast({
+            title: "Validation Error",
+            description: "Password is required",
+            variant: "destructive",
+          });
+          return;
+        }
+        
+        // If all validations pass
+        console.log({ email, password, rememberMe });
+        toast({
+          title: "Login Successful",
+          description: "You have successfully logged in",
+        });
+      };
+
+      return (
+        <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-gray-800 rounded-lg shadow-md"
+          >
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Sign in to your account
+              </h2>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-gray-700 dark:text-gray-300">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="dark:bg-gray-700 dark:border-gray-600"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="password" className="text-gray-700 dark:text-gray-300">
+                  Password
+                </Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="dark:bg-gray-700 dark:border-gray-600"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Checkbox
+                    id="remember"
+                    checked={rememberMe}
+                    onCheckedChange={(checked) => setRememberMe(!!checked)}
+                    className="mr-2"
+                  />
+                  <Label htmlFor="remember" className="text-gray-700 dark:text-gray-300">
+                    Remember me
+                  </Label>
+                </div>
+                <a href="#" className="text-sm text-blue-600 hover:text-blue-500 dark:text-blue-400">
+                  Forgot password?
+                </a>
+              </div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  type="submit"
+                  className="w-full py-2"
+                >
+                  Sign in
+                </Button>
+              </motion.div>
+            </form>
+          </motion.div>
+        </div>
+      );
+    };
+  </ComponentFile></ComponentArtifact>

@@ -1,0 +1,207 @@
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(59, 130, 246, 0.75),
+                -0.05em -0.025em 0 rgba(139, 92, 246, 0.75),
+                -0.025em 0.05em 0 rgba(34, 211, 238, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(59, 130, 246, 0.75),
+                -0.05em -0.025em 0 rgba(139, 92, 246, 0.75),
+                -0.025em 0.05em 0 rgba(34, 211, 238, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(59, 130, 246, 0.75),
+                0.025em 0.025em 0 rgba(139, 92, 246, 0.75),
+                -0.05em -0.05em 0 rgba(34, 211, 238, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(59, 130, 246, 0.75),
+                0.025em 0.025em 0 rgba(139, 92, 246, 0.75),
+                -0.05em -0.05em 0 rgba(34, 211, 238, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(59, 130, 246, 0.75),
+                0.05em 0 0 rgba(139, 92, 246, 0.75),
+                0 -0.05em 0 rgba(34, 211, 238, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(59, 130, 246, 0.75),
+                0.05em 0 0 rgba(139, 92, 246, 0.75),
+                0 -0.05em 0 rgba(34, 211, 238, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(59, 130, 246, 0.75),
+                -0.025em -0.025em 0 rgba(139, 92, 246, 0.75),
+                -0.025em -0.05em 0 rgba(34, 211, 238, 0.75);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes matrix-rain {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.cyber-glitch {
+  animation: glitch 3s infinite alternate;
+}
+
+.cyber-title {
+  position: relative;
+  display: inline-block;
+}
+
+.cyber-title::before,
+.cyber-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.cyber-title::before {
+  left: 2px;
+  text-shadow: -1px 0 #00ffff;
+  animation: glitch-1 0.8s infinite ease-in-out alternate-reverse;
+}
+
+.cyber-title::after {
+  left: -2px;
+  text-shadow: 2px 0 #8b5cf6;
+  animation: glitch-2 1.2s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(50% 0 35% 0); }
+  20% { clip-path: inset(15% 0 15% 0); }
+  40% { clip-path: inset(40% 0 43% 0); }
+  60% { clip-path: inset(25% 0 12% 0); }
+  80% { clip-path: inset(50% 0 35% 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(25% 0 50% 0); }
+  20% { clip-path: inset(25% 0 20% 0); }
+  40% { clip-path: inset(50% 0 30% 0); }
+  60% { clip-path: inset(30% 0 35% 0); }
+  80% { clip-path: inset(75% 0 5% 0); }
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.cyber-badge {
+  position: relative;
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cyber-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(34, 211, 238, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+  transform: rotate(30deg);
+  animation: scanline 2s linear infinite;
+}
+
+.matrix-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext y='15' font-family='monospace' fill='%233b82f6'%3E0%3C/text%3E%3Ctext x='10' y='15' font-family='monospace' fill='%238b5cf6'%3E1%3C/text%3E%3C/svg%3E");
+  animation: matrix-rain 20s linear infinite;
+}
+
+/* 添加更多蓝紫色调的动画效果 */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 15px #3b82f6, 0 0 20px #3b82f6;
+  }
+  50% {
+    box-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6, 0 0 40px #8b5cf6;
+  }
+}
+
+@keyframes cyber-flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 0.99;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+
+.neon-blue-text {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+}
+
+.neon-purple-text {
+  color: #8b5cf6;
+  text-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 15px #8b5cf6;
+}
+
+.blue-purple-gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+} 
