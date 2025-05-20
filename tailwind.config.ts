@@ -9,6 +9,13 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -71,6 +78,7 @@ const config: Config = {
         gradient: "gradient 6s linear infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "slide-up": "slideUp 0.3s ease-out",
+        "fade-in-up": "fadeInUp 0.5s ease-out forwards"  // 添加这行
       },
       keyframes: {
         gradient: {
@@ -81,6 +89,16 @@ const config: Config = {
           "0%": { transform: "translateY(100%)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        fadeInUp: {  // 添加这个关键帧定义
+          "0%": { 
+            opacity: "0",
+            transform: "translateY(10px)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        }
       },
     },
   },
