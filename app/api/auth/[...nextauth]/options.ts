@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise) as Adapter,
   providers: [
     GithubProvider({
-      clientId: env.GITHUB_ID,
+      clientId: env.NEXT_GITHUB_ID,
       clientSecret: env.NEXT_GITHUB_SECRET,
       allowDangerousEmailAccountLinking: true,
       httpOptions: {

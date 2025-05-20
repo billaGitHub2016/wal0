@@ -30,7 +30,7 @@ services:
 
   #     # github sso
   #     - NEXTAUTH_SECRET=PEQER9wxJzUNzJ851Z/jUWoLt9ioQqzqU/J/f0lg=
-  #     - GITHUB_ID=44a551a3154fcc25d6
+  #     - NEXT_GITHUB_ID=44a551a3154fcc25d6
   #     - NEXT_GITHUB_SECRET=72571b95571c28fd7e12b080fc5a56a6de11
 networks:
   compoder:

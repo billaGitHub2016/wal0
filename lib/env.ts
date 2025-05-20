@@ -10,7 +10,7 @@ export const env = createEnv({
     MONGODB_URI: z.string().min(1),
     DB_MAX_LINK: z.string().default("5"),
     NEXTAUTH_SECRET: z.string().min(1),
-    GITHUB_ID: z.string().min(1),
+    NEXT_GITHUB_ID: z.string().min(1),
     NEXT_GITHUB_SECRET: z.string().min(1),
     WALLET_KEY: z.string().min(1),
   },

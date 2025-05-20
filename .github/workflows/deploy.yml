@@ -33,7 +33,7 @@ jobs:
         NODE_ENV: production
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
         NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-        GITHUB_ID: ${{ secrets.GITHUB_ID }}
+        NEXT_GITHUB_ID: ${{ secrets.NEXT_GITHUB_ID }}
         NEXT_GITHUB_SECRET: ${{ secrets.NEXT_GITHUB_SECRET }}
         WALLET_KEY: ${{ secrets.WALLET_KEY }}
         NEXT_PUBLIC_PACKAGE_ID: ${{ secrets.NEXT_PUBLIC_PACKAGE_ID }}
@@ -62,7 +62,7 @@ jobs:
       env:
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
         NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-        GITHUB_ID: ${{ secrets.GITHUB_ID }}
+        NEXT_GITHUB_ID: ${{ secrets.NEXT_GITHUB_ID }}
         NEXT_GITHUB_SECRET: ${{ secrets.NEXT_GITHUB_SECRET }}
         WALLET_KEY: ${{ secrets.WALLET_KEY }}
         NEXT_PUBLIC_PACKAGE_ID: ${{ secrets.NEXT_PUBLIC_PACKAGE_ID }}
