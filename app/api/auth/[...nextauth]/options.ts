@@ -11,7 +11,7 @@ export const authOptions: NextAuthOptions = {
   providers: [
     GithubProvider({
       clientId: env.GITHUB_ID,
-      clientSecret: env.GITHUB_SECRET,
+      clientSecret: env.NEXT_GITHUB_SECRET,
       allowDangerousEmailAccountLinking: true,
       httpOptions: {
         timeout: 30000,
