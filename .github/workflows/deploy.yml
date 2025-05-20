@@ -2,12 +2,14 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [ main ]  # 当 main 分支有推送时触发
-  workflow_dispatch:    # 允许手动触发
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # 在这里添加环境声明
+    environment: wal0  # 或其他你设置的环境名称
     
     steps:
     - uses: actions/checkout@v3
