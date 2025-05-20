@@ -31,6 +31,14 @@ jobs:
       run: pnpm build
       env:
         NODE_ENV: production
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+        GITHUB_ID: ${{ secrets.GITHUB_ID }}
+        NEXT_GITHUB_SECRET: ${{ secrets.NEXT_GITHUB_SECRET }}
+        WALLET_KEY: ${{ secrets.WALLET_KEY }}
+        NEXT_PUBLIC_PACKAGE_ID: ${{ secrets.NEXT_PUBLIC_PACKAGE_ID }}
+        NEXT_PUBLIC_ACCOUNT_BOOK_ID: ${{ secrets.NEXT_PUBLIC_ACCOUNT_BOOK_ID }}
+        NEXT_PUBLIC_NETWORK: ${{ secrets.NEXT_PUBLIC_NETWORK }}
 
     - name: Deploy to Ubuntu server
       uses: appleboy/scp-action@master
@@ -51,3 +59,12 @@ jobs:
           cd /root/projects/wal0-app
           pnpm install --prod
           pm2 restart wal0 || pm2 start "pnpm start" --name wal0
+      env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+        GITHUB_ID: ${{ secrets.GITHUB_ID }}
+        NEXT_GITHUB_SECRET: ${{ secrets.NEXT_GITHUB_SECRET }}
+        WALLET_KEY: ${{ secrets.WALLET_KEY }}
+        NEXT_PUBLIC_PACKAGE_ID: ${{ secrets.NEXT_PUBLIC_PACKAGE_ID }}
+        NEXT_PUBLIC_ACCOUNT_BOOK_ID: ${{ secrets.NEXT_PUBLIC_ACCOUNT_BOOK_ID }}
+        NEXT_PUBLIC_NETWORK: ${{ secrets.NEXT_PUBLIC_NETWORK }}
