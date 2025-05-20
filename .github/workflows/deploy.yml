@@ -8,8 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # 在这里添加环境声明
-    environment: wal0  # 或其他你设置的环境名称
     
     steps:
     - uses: actions/checkout@v3
