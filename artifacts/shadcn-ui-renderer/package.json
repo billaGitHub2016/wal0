@@ -13,7 +13,8 @@
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "npm run pages:build && npx wrangler pages dev",
     "deploy": "npm run pages:build && npx wrangler pages deploy",
-    "build:docker": "docker build -t shadcn-ui-renderer:latest ."
+    "build:docker": "docker build -t shadcn-ui-renderer:latest .",
+    "build:docker:linux-v4": "docker build --platform linux/amd64 -t shadcn-ui-renderer:latest ."
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.0.8",

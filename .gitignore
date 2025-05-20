@@ -28,6 +28,9 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+.env.prod
+.env.backup
+
 
 # vercel
 .vercel
@@ -47,3 +50,5 @@ data/codegens.json
 data/config.json
 
 /script/contract-test.mjs
+
+/public/previews/
