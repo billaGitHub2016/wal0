@@ -19,6 +19,7 @@ html(lang="en")
       }
   script.
     var componentObj = !{JSON.stringify(componentData)};
+    var renderUrlStr = "#{renderUrl}";
     
     addEventListener("load", function () {
       console.log("onLoad event triggered");
@@ -47,7 +48,7 @@ html(lang="en")
               entryFile: entryFile,
             },
           },
-          "http://localhost:3001"
+          renderUrlStr
         );
       }, 100);
     });
@@ -58,7 +59,7 @@ html(lang="en")
 
   body
     iframe#iframe(
-      src="http://localhost:3001"
+      src=renderUrl
       title="Code Preview"
       style="height: 100vh; width: 100vw"
       load="iframeLoaded"
