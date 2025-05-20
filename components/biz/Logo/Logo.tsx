@@ -1,5 +1,10 @@
 import React from "react"
-import { LogoProps } from "./interface"
+
+interface LogoProps {
+  width?: number
+  height?: number
+  className?: string
+}
 
 export const Logo: React.FC<LogoProps> = ({
   width = 200,
@@ -8,50 +13,20 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      viewBox="0 0 200 200"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      className={className + "lucide lucide-layers-icon lucide-layers"}
     >
-      <defs>
-        <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#3B82F6" }} />
-          <stop offset="50%" style={{ stopColor: "#6366F1" }} />
-          <stop offset="100%" style={{ stopColor: "#8B5CF6" }} />
-        </linearGradient>
-
-        <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#6366F1" }} />
-          <stop offset="100%" style={{ stopColor: "#8B5CF6" }} />
-        </linearGradient>
-      </defs>
-
-      <path
-        d="M140 70 A50 50 0 1 0 140 130"
-        fill="none"
-        stroke="url(#techGradient)"
-        strokeWidth={12}
-        strokeLinecap="round"
-      />
-
-      <path
-        d="M85 80 L65 100 L85 120"
-        fill="none"
-        stroke="url(#codeGradient)"
-        strokeWidth={8}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      <path
-        d="M115 80 L135 100 L115 120"
-        fill="none"
-        stroke="url(#codeGradient)"
-        strokeWidth={8}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+      <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+      <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
     </svg>
   )
 }

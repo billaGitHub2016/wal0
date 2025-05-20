@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 import { LoginFormProps } from "./interface"
 import { Logo } from "../Logo"
-import { techIcons } from "./helpers"
+// import { techIcons } from "./helpers"
 
 const LoginForm = ({
   onSubmit,
@@ -57,16 +57,16 @@ const LoginForm = ({
           <div className="text-center space-y-2 sm:space-y-3">
             <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl mx-auto flex items-center justify-center transform hover:scale-105 transition-transform duration-200">
               <Logo
-                width={64}
-                height={64}
-                className="sm:w-[72px] sm:h-[72px]"
+                width={120}
+                height={120}
+                className="sm:w-[72px] sm:h-[72px] text-purple-500 "
               />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              Compoder
+              wal0
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground/90">
-              Generate component code in seconds.
+              Generate website code in seconds.
             </p>
           </div>
 
@@ -100,20 +100,15 @@ const LoginForm = ({
 
           <div className="text-center space-y-3 sm:space-y-4 text-xs sm:text-sm text-muted-foreground/80">
             <p className="font-medium">
-              Join Compoder,
+              Join wal0,
               <span className="text-primary">
                 {" "}
-                it&apos;s free & open source!
+                deploy your website to Walrus with one click.
               </span>
-            </p>
-            <p className="leading-relaxed">
-              Your Stack, Your UI - AI-Powered Component Code Generator for
-              Every
-              <span className="text-primary"> Frontend Engineer</span>
             </p>
           </div>
 
-          <div className="grid grid-cols-5 gap-2 sm:gap-4 px-2 sm:px-4 pt-4 place-items-center">
+          {/* <div className="grid grid-cols-5 gap-2 sm:gap-4 px-2 sm:px-4 pt-4 place-items-center">
             {techIcons.map((tech, index) => (
               <div
                 key={index}
@@ -128,7 +123,7 @@ const LoginForm = ({
                 {tech.icon}
               </div>
             ))}
-          </div>
+          </div> */}
         </Card>
       </div>
     </div>
