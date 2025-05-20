@@ -102,6 +102,7 @@ export const updateComponentCode = async (
         "update",
         "--epochs",
         "1",
+        "--force",
         folderPath,
         objectId,
       ])
