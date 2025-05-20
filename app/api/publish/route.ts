@@ -175,7 +175,8 @@ export async function GET(request: NextRequest) {
                     siteObjectId: result.siteObjectId as string,
                     transactionDigest: publishDigest.digest as string,
                     siteUrl:
-                      `http://${result.localPortalId}.localhost:3005` || "",
+                      `http://${result.localPortalId}.${process.env.WALRUS_PORTAL_HOST}` ||
+                      "",
                     localPortalId: result.localPortalId || "",
                     gasFee: (publishDigest.cost as number) || 0,
                     transferDigest: " ",
@@ -196,7 +197,8 @@ export async function GET(request: NextRequest) {
                     type: "complete",
                     result: {
                       siteUrl:
-                        `http://${result.localPortalId}.localhost:3005` || "",
+                        `http://${result.localPortalId}.${process.env.WALRUS_PORTAL_HOST}` ||
+                        "",
                     },
                   })}\n\n`,
                 ),
