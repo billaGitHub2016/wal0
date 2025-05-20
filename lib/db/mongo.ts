@@ -1,9 +1,15 @@
 import mongoose from "mongoose"
-import { MongoClient } from "mongodb"
+import { MongoClient, ServerApiVersion } from "mongodb"
 import { env } from "@/lib/env"
 
 if (!global.mongoClientPromise) {
-  const client = new MongoClient(env.MONGODB_URI)
+  const client = new MongoClient(env.MONGODB_URI, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
+  })
   global.mongoClientPromise = client.connect()
 }
 
@@ -19,13 +25,22 @@ export async function connectToDatabase(): Promise<void> {
   global.mongodb = "connecting"
 
   try {
+    // global.mongodb = await mongoose.connect(env.MONGODB_URI, {
+    //   bufferCommands: true,
+    //   maxConnecting: Number(env.DB_MAX_LINK || 5),
+    //   maxPoolSize: Number(env.DB_MAX_LINK || 5),
+    //   minPoolSize: 2,
+    //   serverSelectionTimeoutMS: 15000,  // Add this: increase server selection timeout
+    //   connectTimeoutMS: 15000,           // Add this: increase connection timeout
+    // })
     global.mongodb = await mongoose.connect(env.MONGODB_URI, {
       bufferCommands: true,
       maxConnecting: Number(env.DB_MAX_LINK || 5),
       maxPoolSize: Number(env.DB_MAX_LINK || 5),
       minPoolSize: 2,
-      serverSelectionTimeoutMS: 15000,  // Add this: increase server selection timeout
-      connectTimeoutMS: 15000,           // Add this: increase connection timeout
+      serverSelectionTimeoutMS: 15000, // Add this: increase server selection timeout
+      connectTimeoutMS: 15000,
+      serverApi: { version: "1", strict: true, deprecationErrors: true }, // Add this: increase connection timeout
     })
 
     console.log("mongo connected")
