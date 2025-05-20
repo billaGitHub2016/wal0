@@ -27,6 +27,16 @@ jobs:
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
 
+    - name: Print environment variables
+      run: |
+        echo "MONGODB_URI=${{ secrets.MONGODB_URI }}"
+        echo "NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}"
+        echo "NEXT_GITHUB_ID=${{ secrets.NEXT_GITHUB_ID }}"
+        echo "NEXT_GITHUB_SECRET=${{ secrets.NEXT_GITHUB_SECRET }}"
+        echo "NEXT_PUBLIC_PACKAGE_ID=${{ secrets.NEXT_PUBLIC_PACKAGE_ID }}"
+        echo "NEXT_PUBLIC_ACCOUNT_BOOK_ID=${{ secrets.NEXT_PUBLIC_ACCOUNT_BOOK_ID }}"
+        echo "NEXT_PUBLIC_NETWORK=${{ secrets.NEXT_PUBLIC_NETWORK }}"
+
     - name: Build application
       run: pnpm build
       env:
