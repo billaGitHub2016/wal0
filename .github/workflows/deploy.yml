@@ -36,6 +36,7 @@ jobs:
         echo "NEXT_PUBLIC_PACKAGE_ID=${{ secrets.NEXT_PUBLIC_PACKAGE_ID }}"
         echo "NEXT_PUBLIC_ACCOUNT_BOOK_ID=${{ secrets.NEXT_PUBLIC_ACCOUNT_BOOK_ID }}"
         echo "NEXT_PUBLIC_NETWORK=${{ secrets.NEXT_PUBLIC_NETWORK }}"
+        echo "SITE_BUILDER=${{ secrets.SITE_BUILDER }}"
 
     - name: Build application
       run: pnpm build
