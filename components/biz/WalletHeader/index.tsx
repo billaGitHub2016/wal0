@@ -21,7 +21,7 @@ export function WalletHeader() {
       {/* 钱包部分 */}
       <div className="flex items-center gap-4">
         <div className="text-sm text-muted-foreground">
-          钱包余额：
+          Wallet Balance:
           {loading ? (
             <svg
               className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"

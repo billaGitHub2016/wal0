@@ -26,7 +26,7 @@ export async function GET(request: Request) {
     // 参数验证
     if (isNaN(page) || isNaN(pageSize) || page < 1 || pageSize < 1) {
       return NextResponse.json(
-        { code: 1, msg: "分页参数错误" },
+        { code: 1, msg: "Invalid pagination parameters" },
         { status: 400 },
       )
     }

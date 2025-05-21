@@ -30,7 +30,7 @@ const LLMSelectorButton: React.FC<LLMSelectorButtonProps> = ({
       selectedProvider={provider}
       selectedModel={model}
       onLLMChange={handleLLMChange}
-      placeholder="选择模型"
+      placeholder="Select Model"
       disabled={disabled || loading}
     />
   )

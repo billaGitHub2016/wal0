@@ -121,12 +121,14 @@ export default function WalletPage() {
 
   return (
     <div className="container mx-auto pb-6">
-      <AppHeader breadcrumbs={[{ label: "我的钱包" }]} />
+      <AppHeader breadcrumbs={[{ label: "My Wallet" }]} />
       <ScrollArea className="h-[calc(100vh-200px)]">
         {/* 钱包余额卡片 */}
         <Card className="mb-8">
           <CardHeader className="flex flex-row items-center space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium mr-2">钱包余额</CardTitle>
+            <CardTitle className="text-sm font-medium mr-2">
+              Wallet Balance
+            </CardTitle>
             <Wallet className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -145,14 +147,14 @@ export default function WalletPage() {
                   onClick={() => setIsRechargeOpen(true)}
                   className="bg-gradient-to-r from-blue-500 to-violet-500"
                 >
-                  充值
+                  Recharge
                 </Button>
                 <Button
                   onClick={() => setIsWithdraweOpen(true)}
                   className="ml-2"
                   variant="outline"
                 >
-                  提现
+                  Withdrawal
                 </Button>
               </div>
             </div>
@@ -161,22 +163,24 @@ export default function WalletPage() {
 
         {/* 交易记录 */}
         <div className="mb-8">
-          <h2 className="text-lg font-semibold mb-4">交易记录</h2>
+          <h2 className="text-lg font-semibold mb-4">Transaction Record</h2>
           <div className="rounded-md border">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>类型</TableHead>
-                  <TableHead>SUI 数量</TableHead>
-                  <TableHead>美元金额</TableHead>
-                  <TableHead>汇率</TableHead>
-                  <TableHead>时间</TableHead>
+                  <TableHead>Type</TableHead>
+                  <TableHead>SUI Amount</TableHead>
+                  <TableHead>USD Amount</TableHead>
+                  <TableHead>Exchange Rate</TableHead>
+                  <TableHead>Date</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {transactions?.list?.map((tx: any) => (
                   <TableRow key={tx._id}>
-                    <TableCell>{tx.type === 0 ? "充值" : "提现"}</TableCell>
+                    <TableCell>
+                      {tx.type === 0 ? "Recharge" : "Withdrawal"}
+                    </TableCell>
                     <TableCell>{tx.sui.toFixed(2)} SUI</TableCell>
                     <TableCell>${tx.amount.toFixed(2)}</TableCell>
                     <TableCell>${tx.exchangeRate.toFixed(2)}</TableCell>
@@ -254,16 +258,16 @@ export default function WalletPage() {
 
         {/* AI 使用记录 */}
         <div>
-          <h2 className="text-lg font-semibold mb-4">AI 使用记录</h2>
+          <h2 className="text-lg font-semibold mb-4">AI Usage Logs</h2>
           <div className="rounded-md border">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>模型</TableHead>
+                  <TableHead>Module</TableHead>
                   <TableHead>Prompt</TableHead>
-                  <TableHead>Token 数量</TableHead>
-                  <TableHead>费用</TableHead>
-                  <TableHead>时间</TableHead>
+                  <TableHead>Tokens</TableHead>
+                  <TableHead>Fee</TableHead>
+                  <TableHead>Date</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

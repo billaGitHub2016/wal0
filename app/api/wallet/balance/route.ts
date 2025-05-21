@@ -10,7 +10,7 @@ export async function GET() {
 
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
-      return NextResponse.json({ code: 1, msg: "用户未登录" }, { status: 401 })
+      return NextResponse.json({ code: 1, msg: "User not logged in" }, { status: 401 })
     }
 
     const wallet = await getWalletByUserId(session.user.id)

@@ -113,8 +113,8 @@ export default function ComponentPage() {
 
     if (balance.usd <= 0.1) {
       toast({
-        title: "余额不足",
-        description: "您的余额不足，请先充值后再使用",
+        title: "Insufficient Balance",
+        description: "Your balance is insufficient, please recharge first.",
         variant: "destructive",
       })
       return
@@ -436,9 +436,10 @@ export default function ComponentPage() {
               >
                 ✕
               </Button>
-              <AlertDialogTitle>选择发布网络</AlertDialogTitle>
+              <AlertDialogTitle>Select publishing network</AlertDialogTitle>
               <AlertDialogDescription>
-                请选择要发布到的网络，发布操作需要消耗一定量的gas。
+                Please select the network to publish to, as publishing requires
+                a certain amount of gas consumption.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter className="flex-col gap-2 sm:flex-row">
@@ -461,7 +462,7 @@ export default function ComponentPage() {
                 className="w-full sm:w-auto relative"
                 onClick={() => handlePublish("testnet")}
               >
-                发布到 Testnet
+                Publish To Testnet
                 <Badge
                   variant="secondary"
                   className="absolute ml-2 -top-4 -right-7"

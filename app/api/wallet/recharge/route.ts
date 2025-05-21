@@ -25,13 +25,13 @@ export async function POST(request: Request) {
 
     // 参数验证
     if (!sui || !wallet) {
-      return NextResponse.json({ code: 1, msg: "参数不完整" }, { status: 400 })
+      return NextResponse.json({ code: 1, msg: "Incomplete parameters" }, { status: 400 })
     }
 
     const exchangeRateRes = await getSuiPrice()
     if (exchangeRateRes.code !== 0) {
       return NextResponse.json(
-        { code: 1, msg: "获取汇率失败" },
+        { code: 1, msg: "Failed to get exchange rate" },
         { status: 400 },
       )
     }
