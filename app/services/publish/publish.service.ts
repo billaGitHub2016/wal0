@@ -34,24 +34,30 @@ export const publishComponentCode = async (
       "site-builder",
       siteBuilder,
     )
-    const configPath =
-      process.env.SITE_BUILDER &&
-      path.join(process.cwd(), "public", "site-builder", "sites-config.yaml")
+    const configPath = path.join(
+      process.cwd(),
+      "public",
+      "site-builder",
+      "sites-config.yaml",
+    )
 
     // 使用 spawn 来获取实时输出
     return new Promise((resolve, reject) => {
       const process = spawn(executablePath, [
+        "--config",
+        configPath,
         "publish",
-        `${configPath ? `--config ${configPath}` : ""}}`,
-        folderPath,
         "--epochs",
         "1",
+        folderPath,
       ])
+      console.log(process.spawnargs)
       let fullOutput = ""
 
       process.stdout.on("data", data => {
         const output = data.toString()
         fullOutput += output
+        console.log(output)
         onOutput?.(output, "stdout")
       })
 

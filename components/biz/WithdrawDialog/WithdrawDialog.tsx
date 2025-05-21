@@ -69,8 +69,8 @@ export function WithdrawDialog({
     if (isNaN(sui)) return
     if (!account) {
       toast({
-        title: "请先连接钱包",
-        description: "请先连接钱包",
+        title: "Error",
+        description: "Please connect your wallet",
         variant: "destructive",
       })
       return

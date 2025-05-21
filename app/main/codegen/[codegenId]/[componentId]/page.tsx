@@ -247,8 +247,8 @@ export default function ComponentPage() {
   const publishSite = async () => {
     if (!account) {
       toast({
-        title: "错误",
-        description: "请先连接钱包",
+        title: "Error",
+        description: "Please connect your wallet first",
         variant: "destructive",
       })
       return

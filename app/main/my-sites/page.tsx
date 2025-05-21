@@ -315,11 +315,11 @@ export default function MySitesPage() {
       <AlertDialog open={sendDialogOpen} onOpenChange={setSendDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>确认发送网站</AlertDialogTitle>
+            <AlertDialogTitle>Confirm to transfer website</AlertDialogTitle>
             <AlertDialogDescription>
               是否要把该网站发送到当前连接的钱包地址{" "}
               {account?.address.slice(0, 6)}...{account?.address.slice(-6)}？
-              转移网站到你的钱包后，可以 绑定
+              After transferring the website to your wallet, you can bind the
               <Button
                 variant="link"
                 className="p-0 h-auto font-normal"
@@ -329,7 +329,7 @@ export default function MySitesPage() {
               >
                 suins name
               </Button>
-              。该操作需要支付交易 gas 费。
+              .This operation requires payment of transaction gas fees.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
