@@ -27,7 +27,7 @@ export const publishComponentCode = async (
   onOutput: (output: string, type: "stdout" | "stderr") => void,
 ): Promise<PublishResult> => {
   try {
-    const siteBuilder = env.SITE_BUILDER || "site-builder-testnet"
+    const siteBuilder = process.env.SITE_BUILDER || "site-builder-testnet"
     const executablePath = path.join(
       process.cwd(),
       "public",
@@ -35,7 +35,7 @@ export const publishComponentCode = async (
       siteBuilder,
     )
     const configPath =
-      env.SITE_BUILDER &&
+      process.env.SITE_BUILDER &&
       path.join(process.cwd(), "public", "site-builder", "sites-config.yaml")
 
     // 使用 spawn 来获取实时输出
