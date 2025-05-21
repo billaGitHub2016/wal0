@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import type { ErrorDisplayProps } from "./interface";
+import React, { useEffect, useState } from "react"
+import type { ErrorDisplayProps } from "./interface"
 
 const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ errorMessage }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => setVisible(true), 100);
-  }, []);
+    setTimeout(() => setVisible(true), 100)
+  }, [])
 
   return (
     <div
@@ -130,11 +130,11 @@ const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ errorMessage }) => {
           rel="noopener noreferrer"
           style={{ color: "#666", textDecoration: "underline" }}
         >
-          report it in Compoder&apos;s GitHub issues
+          report it in Wal0&apos;s GitHub issues
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ErrorDisplay;
+export default ErrorDisplay

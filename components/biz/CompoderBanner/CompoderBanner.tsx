@@ -18,7 +18,7 @@ const DEFAULT_THEME_COLORS = {
 }
 
 export const CompoderBanner: React.FC<CompoderBannerProps> = ({
-  title = "Compoder",
+  title = "Wal0",
   subtitle = "AI-Powered Component Code Generator",
   description = "Your Stack, Your UI - AI-Powered Component Code Generator for Every Frontend Engineer",
   tagline = "Generate component code in seconds",

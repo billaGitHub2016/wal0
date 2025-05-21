@@ -59,11 +59,11 @@ const LoginForm = ({
               <Logo
                 width={120}
                 height={120}
-                className="sm:w-[72px] sm:h-[72px] text-purple-500 "
+                className="sm:w-[50px] sm:h-[50px] text-purple-500 "
               />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              wal0
+              Wal0
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground/90">
               Generate website code in seconds.
@@ -100,7 +100,7 @@ const LoginForm = ({
 
           <div className="text-center space-y-3 sm:space-y-4 text-xs sm:text-sm text-muted-foreground/80">
             <p className="font-medium">
-              Join wal0,
+              Join Wal0,
               <span className="text-primary">
                 {" "}
                 deploy your website to Walrus with one click.

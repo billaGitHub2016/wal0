@@ -37,7 +37,7 @@ type Story = StoryObj<typeof CompoderBanner>
 
 export const Default: Story = {
   args: {
-    title: "Compoder",
+    title: "Wal0",
     subtitle: "AI-Powered Component Code Generator",
     description:
       "Your Stack, Your UI - AI-Powered Component Code Generator for Every Frontend Engineer",
@@ -105,11 +105,11 @@ export const LowCyberpunk: Story = {
 export const CustomContent: Story = {
   args: {
     ...Default.args,
-    title: "Compoder Pro",
+    title: "Wal0 Pro",
     subtitle: "Enterprise Component Generator",
     description:
       "Build professional UI components with AI assistance for teams and organizations",
     tagline: "Scale your design system effortlessly",
-    actionButtonLabel: "Try Compoder Pro",
+    actionButtonLabel: "Try Wal0 Pro",
   },
 }

@@ -14,7 +14,7 @@ export function WalletHeader() {
           <Logo />
         </div>
         <span className="font-semibold bg-gradient-to-r from-[#3B82F6] via-[#6366F1] to-[#8B5CF6] bg-clip-text text-transparent">
-          Compoder
+          Wal0
         </span>
       </div> */}
 

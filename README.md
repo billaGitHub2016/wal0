@@ -1,4 +1,3 @@
-
 <div align="center">
 
 <h1 align="center" style="border-bottom: none">
@@ -12,7 +11,7 @@ Wal0 is an open-source AI-powered component code generation engine that integrat
 
 </div>
 
-[Compoder Demo Video - Click to Watch](https://ai.iamlv.cn/compoder~.mp4)
+[Wal0 Demo Video - Click to Watch](https://ai.iamlv.cn/compoder~.mp4)
 
 ## 🔥 Core Features:
 
@@ -52,9 +51,9 @@ Customize Codegens based on various AI models (such as OpenAI, Claude...)
 
 ## 🛣️ Roadmap
 
-We are continuously improving Compoder and will launch more exciting new features in the future:
+We are continuously improving Wal0 and will launch more exciting new features in the future:
 
-- Underlying support for Code To Figma: Convert code generated in Compoder to Figma designs with one click
+- Underlying support for Code To Figma: Convert code generated in Wal0 to Figma designs with one click
 
 - Underlying support for Figma To Code: Generate component code from Figma designs with one click, supporting conversion to components in different tech stacks
 
@@ -125,7 +124,7 @@ pnpm migrate-codegen
 pnpm storybook
 ```
 
-**6. Start Compoder**
+**6. Start Wal0**
 
 ```bash
 pnpm dev
@@ -155,11 +154,11 @@ More detailed usage documentation, please refer to [CONTRIBUTING.md](./CONTRIBUT
 
 ### Deployment with Docker
 
-Deploy your own feature-rich Compoder instance using Docker. Our team is working on providing Docker images.
+Deploy your own feature-rich Wal0 instance using Docker. Our team is working on providing Docker images.
 
 ## Tech Stack
 
-Compoder is built on the following open-source projects:
+Wal0 is built on the following open-source projects:
 
 - [Next.js](https://github.com/vercel/next.js) - React framework
 - [Shadcn UI](https://ui.shadcn.com/) - Component library
@@ -176,7 +175,7 @@ We deeply appreciate these powerful yet simple libraries provided by the communi
 
 ## Stay Ahead
 
-Star Compoder on GitHub to receive notifications about new versions immediately.
+Star Wal0 on GitHub to receive notifications about new versions immediately.
 
 ![compoder-star](./assets/star.gif)
 
@@ -184,19 +183,19 @@ Star Compoder on GitHub to receive notifications about new versions immediately.
 
 - [GitHub Discussions](https://github.com/IamLiuLv/compoder/discussions) 👉: Best for sharing feedback and asking questions.
 - [GitHub Issues](https://github.com/IamLiuLv/compoder/issues) 👉: Best for reporting bugs and suggesting features.
-- [WeChat](./assets/wechat.png): Scan the QR code below, add as a WeChat friend with the note: Compoder, to join the Compoder community. We will share the latest updates, technical insights, component code generator templates, and look for long-term partners.
+- [WeChat](./assets/wechat.png): Scan the QR code below, add as a WeChat friend with the note: Wal0, to join the Wal0 community. We will share the latest updates, technical insights, component code generator templates, and look for long-term partners.
 
 <img src="./assets/wechat.png" alt="compoder" width="100px">
 
 ## Contributing
 
-For contributors who want to contribute to Compoder, we welcome your PRs and Issues. We will review and provide feedback promptly.
+For contributors who want to contribute to Wal0, we welcome your PRs and Issues. We will review and provide feedback promptly.
 
-> Currently, Compoder is in an early rapid iteration stage, and we welcome interested developers to join. We will maintain a long-term cooperative relationship.
+> Currently, Wal0 is in an early rapid iteration stage, and we welcome interested developers to join. We will maintain a long-term cooperative relationship.
 
 **Contributors**
 
-Thanks to all the contributors who have contributed to Compoder. Your efforts make Compoder better.
+Thanks to all the contributors who have contributed to Wal0. Your efforts make Wal0 better.
 
 <a href="https://github.com/IamLiuLv/compoder/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=IamLiuLv/compoder" />
@@ -208,4 +207,4 @@ To protect your privacy, please avoid posting security-related issues on GitHub.
 
 ## License
 
-This repository follows the [Compoder Open Source License](./LICENSE), which is essentially Apache 2.0 with some additional restrictions.
+This repository follows the [Wal0 Open Source License](./LICENSE), which is essentially Apache 2.0 with some additional restrictions.

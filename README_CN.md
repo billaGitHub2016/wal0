@@ -4,12 +4,12 @@
 
 <h1 align="center" style="border-bottom: none">
     <b>
-        <a href="https://github.com/IamLiuLv/compoder">Compoder</a><br>
+        <a href="https://github.com/IamLiuLv/compoder">Wal0</a><br>
     </b>
     AI-Powered Component Code Generator For Every Frontend Engineer<br>
 </h1>
 
-Compoder 是一个开源的 AI 驱动组件代码生成引擎，集成了现代前端技术栈和多种 AI 模型能力，你可以基于 Compoder 定制基于特定技术栈（如：React、Vue、Mui、Antd、Element-Plus、Tailwind CSS、Shadcn UI...），以及特定场景（如：Landing Page、邮件模版、后台表单组件）的 AI 驱动的组件代码生成器。
+Wal0 是一个开源的 AI 驱动组件代码生成引擎，集成了现代前端技术栈和多种 AI 模型能力，你可以基于 Wal0 定制基于特定技术栈（如：React、Vue、Mui、Antd、Element-Plus、Tailwind CSS、Shadcn UI...），以及特定场景（如：Landing Page、邮件模版、后台表单组件）的 AI 驱动的组件代码生成器。
 
 <p align="center">
     <a href="https://github.com/IamLiuLv/compoder" target="_blank">
@@ -29,7 +29,7 @@ Compoder 是一个开源的 AI 驱动组件代码生成引擎，集成了现代�
 
 </div>
 
-[Compoder 演示视频 - 点击观看](https://ai.iamlv.cn/compoder~.mp4)
+[Wal0 演示视频 - 点击观看](https://ai.iamlv.cn/compoder~.mp4)
 
 ## 🔥 核心特性：
 
@@ -69,9 +69,9 @@ Compoder 是一个开源的 AI 驱动组件代码生成引擎，集成了现代�
 
 ## 🛣️ 路线图
 
-我们正在持续改进 Compoder，未来将推出更多令人兴奋的新功能：
+我们正在持续改进 Wal0，未来将推出更多令人兴奋的新功能：
 
-- 底层能力支持 Code To Figma：支持 Compoder 中生成的代码一键转换为 Figma 设计稿
+- 底层能力支持 Code To Figma：支持 Wal0 中生成的代码一键转换为 Figma 设计稿
 
 - 底层能力支持 Figma To Code：支持从 Figma 设计稿一键生成组件代码，支持转换为不同技术栈的组件代码
 
@@ -142,7 +142,7 @@ pnpm migrate-codegen
 pnpm storybook
 ```
 
-**6. 启动 Compoder**
+**6. 启动 Wal0**
 
 ```bash
 pnpm dev
@@ -168,15 +168,15 @@ cd artifacts/element-plus-renderer
 pnpm dev
 ```
 
-更多关于 Compoder 的详细使用文档，请参考 [CONTRIBUTING_CN.md](./CONTRIBUTING_CN.md)。
+更多关于 Wal0 的详细使用文档，请参考 [CONTRIBUTING_CN.md](./CONTRIBUTING_CN.md)。
 
 ### 使用 Docker 部署
 
-> 使用 Docker 部署您自己的功能丰富的 Compoder 实例。我们的团队正在努力提供 Docker 镜像。
+> 使用 Docker 部署您自己的功能丰富的 Wal0 实例。我们的团队正在努力提供 Docker 镜像。
 
 ## 技术栈
 
-Compoder 基于以下开源项目构建：
+Wal0 基于以下开源项目构建：
 
 - [Next.js](https://github.com/vercel/next.js) - React 框架
 - [Shadcn UI](https://ui.shadcn.com/) - 组件库
@@ -193,7 +193,7 @@ Compoder 基于以下开源项目构建：
 
 ## 保持领先
 
-在 GitHub 上给 Compoder Star，并立即收到新版本的通知。
+在 GitHub 上给 Wal0 Star，并立即收到新版本的通知。
 
 ![compoder-star](./assets/star.gif)
 
@@ -201,19 +201,19 @@ Compoder 基于以下开源项目构建：
 
 - [GitHub 讨论](https://github.com/IamLiuLv/compoder/discussions) 👉：最适合分享反馈和提问。
 - [GitHub Issues](https://github.com/IamLiuLv/compoder/issues) 👉：最适合报告 bugs 和提出功能建议。
-- [微信](./assets/wechat.png)：扫描下方二维码，添加微信好友，备注：Compoder，拉你进入 Compoder 社区，我们会在社区中分享 Compoder 的最新动态、技术分享、组件代码生成器模板，以及寻找长期合作伙伴。
+- [微信](./assets/wechat.png)：扫描下方二维码，添加微信好友，备注：Wal0，拉你进入 Wal0 社区，我们会在社区中分享 Wal0 的最新动态、技术分享、组件代码生成器模板，以及寻找长期合作伙伴。
 
 <img src="./assets/wechat.png" alt="compoder" width="100px">
 
 ## Contributing
 
-对于想为 Compoder 做出贡献的贡献者们，我们欢迎您提交 PR 和 Issue，我们将在第一时间进行审核和反馈。
+对于想为 Wal0 做出贡献的贡献者们，我们欢迎您提交 PR 和 Issue，我们将在第一时间进行审核和反馈。
 
-> 目前 Compoder 处于早期迅速迭代阶段，欢迎感兴趣的开发者加入，我们会长期保持合作关系。
+> 目前 Wal0 处于早期迅速迭代阶段，欢迎感兴趣的开发者加入，我们会长期保持合作关系。
 
 **Contributors**
 
-感谢所有为 Compoder 做出贡献的贡献者们，是你们的努力让 Compoder 变得更好。
+感谢所有为 Wal0 做出贡献的贡献者们，是你们的努力让 Wal0 变得更好。
 
 <a href="https://github.com/IamLiuLv/compoder/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=IamLiuLv/compoder" />
@@ -225,4 +225,4 @@ Compoder 基于以下开源项目构建：
 
 ## 许可证
 
-本仓库遵循 [Compoder Open Source License](./LICENSE) 开源协议，该许可证本质上是 Apache 2.0，但有一些额外的限制。
+本仓库遵循 [Wal0 Open Source License](./LICENSE) 开源协议，该许可证本质上是 Apache 2.0，但有一些额外的限制。

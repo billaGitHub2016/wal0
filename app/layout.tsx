@@ -19,7 +19,7 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Compoder",
+  title: "Wal0",
   description: "AI-powered Component Code Generator",
   icons: [{ type: "image/svg+xml", url: "/logo.svg" }],
 }

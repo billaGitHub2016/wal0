@@ -1,6 +1,6 @@
 # 贡献指南
 
-欢迎来到 Compoder 贡献指南！作为 AI 驱动的组件代码生成引擎，我们致力于为前端工程师提供最佳的组件代码生成体验，提供基于多种技术栈、组件库、AI 模型、以及多种场景的代码生成器。您的每一份贡献都意义非凡。
+欢迎来到 Wal0 贡献指南！作为 AI 驱动的组件代码生成引擎，我们致力于为前端工程师提供最佳的组件代码生成体验，提供基于多种技术栈、组件库、AI 模型、以及多种场景的代码生成器。您的每一份贡献都意义非凡。
 
 ## issue 管理
 
@@ -34,7 +34,7 @@
 
 ### 2. Fork 仓库
 
-访问 [Compoder GitHub 仓库](https://github.com/IamLiuLv/compoder)，点击右上角的 "Fork" 按钮创建一个属于您自己的仓库副本。
+访问 [Wal0 GitHub 仓库](https://github.com/IamLiuLv/compoder)，点击右上角的 "Fork" 按钮创建一个属于您自己的仓库副本。
 
 ### 3. 克隆仓库
 
@@ -74,7 +74,7 @@ pnpm migrate-codegen
 ### 6. 启动开发服务
 
 ```bash
-# 启动 Compoder
+# 启动 Wal0
 pnpm dev
 ```
 
@@ -161,7 +161,7 @@ PR 合并后，您将荣登项目[贡献者名单](https://github.com/IamLiuLv/c
 
 ## 代码生成命令
 
-Compoder 提供了基于 Cursor 的多种代码生成命令，便于快速创建各类组件和服务：
+Wal0 提供了基于 Cursor 的多种代码生成命令，便于快速创建各类组件和服务：
 
 ```bash
 # 生成业务组件
@@ -188,6 +188,6 @@ compoder refactor:bizcomponent
 
 - 加入 [GitHub Discussions](https://github.com/IamLiuLv/compoder/discussions) 社区
 - 在 [GitHub Issues](https://github.com/IamLiuLv/compoder/issues) 中提问
-- 加入社区，扫描下方二维码，添加微信好友，备注：Compoder，拉你进入 Compoder 社区，在社区中和一群志同道合的小伙伴一起交流学习。
+- 加入社区，扫描下方二维码，添加微信好友，备注：Wal0，拉你进入 Wal0 社区，在社区中和一群志同道合的小伙伴一起交流学习。
 
 <img src="./assets/wechat.png" alt="compoder" width="100px">

@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Welcome to the Compoder contributing guide! As an AI-powered component code generation engine, we're dedicated to providing the best component code generation experience for frontend engineers, supporting multiple tech stacks, component libraries, AI models, and various scenarios. Every contribution you make is valuable.
+Welcome to the Wal0 contributing guide! As an AI-powered component code generation engine, we're dedicated to providing the best component code generation experience for frontend engineers, supporting multiple tech stacks, component libraries, AI models, and various scenarios. Every contribution you make is valuable.
 
 ## Issue Management
 
@@ -34,7 +34,7 @@ Based on the issue description, claim issues you're interested in and start codi
 
 ### 2. Fork the Repository
 
-Visit the [Compoder GitHub repository](https://github.com/IamLiuLv/compoder), click the "Fork" button in the top right corner to create your own copy of the repository.
+Visit the [Wal0 GitHub repository](https://github.com/IamLiuLv/compoder), click the "Fork" button in the top right corner to create your own copy of the repository.
 
 ### 3. Clone the Repository
 
@@ -74,7 +74,7 @@ pnpm migrate-codegen
 ### 6. Start Development Server
 
 ```bash
-# Start Compoder
+# Start Wal0
 pnpm dev
 ```
 
@@ -157,7 +157,7 @@ After your PR is merged, you'll be honored in the project's [contributors list](
 
 ## Code Generation Commands
 
-Compoder provides various code generation commands to quickly create different components and services:
+Wal0 provides various code generation commands to quickly create different components and services:
 
 ```bash
 # Generate business component
@@ -184,6 +184,6 @@ If you encounter issues:
 
 - Join the [GitHub Discussions](https://github.com/IamLiuLv/compoder/discussions) community
 - Ask questions in [GitHub Issues](https://github.com/IamLiuLv/compoder/issues)
-- Join the WeChat community: Scan the QR code below, add as WeChat friend with the note "Compoder" to be added to the Compoder community where you can learn and exchange ideas with like-minded developers.
+- Join the WeChat community: Scan the QR code below, add as WeChat friend with the note "Wal0" to be added to the Wal0 community where you can learn and exchange ideas with like-minded developers.
 
 <img src="./assets/wechat.png" alt="compoder" width="100px">

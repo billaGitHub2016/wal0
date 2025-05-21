@@ -36,14 +36,18 @@ export function AppSidebarLayout({
               <SidebarMenuButton size="lg" asChild>
                 <a href="#">
                   <div className="flex aspect-square size-10 items-center justify-start rounded-lg text-sidebar-primary-foreground">
-                    <Logo />
+                    <Logo
+                      width={30}
+                      height={30}
+                      className="sm:w-[50px] sm:h-[50px] text-purple-500 "
+                    />
                   </div>
                   <div className="grid flex-1 text-left text-sm leading-tight">
-                    <div className="truncate font-semibold inline-block bg-gradient-to-r from-[#3B82F6] via-[#6366F1] to-[#8B5CF6] bg-clip-text text-transparent">
-                      Compoder
+                    <div className="truncate font-semibold inline-block bg-clip-text">
+                      Wal0
                     </div>
                     <div className="truncate text-primary/50 text-[11px]">
-                      Component Code Generator
+                      Website Code Generator
                     </div>
                   </div>
                 </a>

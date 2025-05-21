@@ -247,8 +247,8 @@ export default function CodegenDetailPage({
                       <CompoderThinkingLoading
                         text={
                           streamingContent
-                            ? "Compoder is coding..."
-                            : "Compoder is thinking..."
+                            ? "Wal0 is coding..."
+                            : "Wal0 is thinking..."
                         }
                       />
                     ) : undefined

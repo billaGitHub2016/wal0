@@ -197,7 +197,7 @@ export default function ComponentPage() {
 
   const loadingSlot = useMemo(() => {
     if (isSubmitting && !streamingContent) {
-      return <CompoderThinkingLoading text="Compoder is thinking..." />
+      return <CompoderThinkingLoading text="Wal0 is thinking..." />
     }
     if (isSubmitting && streamingContent) {
       return (

@@ -43,7 +43,7 @@ export const ErrorToast: FC<ErrorToastProps> = ({
       <div className="grid gap-1">
         <div className="font-mono font-bold flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-[#00ff00] animate-pulse" />
-          Try Compoder Auto Fix
+          Try Wal0 Auto Fix
         </div>
         <div className="text-xs leading-relaxed font-mono">
           {formatErrorMessage(message)}

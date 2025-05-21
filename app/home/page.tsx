@@ -24,19 +24,20 @@ function AnimatedTitle({ text }: { text: string }) {
   return (
     <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
       <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
-        AI-powered
+        Use <span className="text-purple-500 dark:text-purple-400">Wal0</span>{" "}
+        to publish
       </span>{" "}
       <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
-        website
+        to publish
       </span>{" "}
       <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">
-        generator,
+        your first
       </span>{" "}
-      <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards] text-purple-500 dark:text-purple-400">
-        decentralized
-      </span>{" "}
-      <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:1000ms] [animation-fill-mode:forwards] text-purple-500 dark:text-purple-400">
-        deployment
+      <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards] underline">
+        <Link href="https://wal.app/" target="_blank">
+          Walrus Site
+        </Link>
+        .
       </span>
     </h1>
   )
@@ -52,22 +53,21 @@ function HeroSection() {
             <div className="space-y-2">
               <AnimatedTitle text="AI-powered website generator, decentralized deployment" />
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Just enter a prompt, and walrus-v0 will generate a complete
-                website for you. Debug online, then deploy to decentralized
-                networks with a single click.
+                Just enter a prompt, and Wal0 will generate a complete website
+                for you. Debug online, then deploy to Walrus with a single
+                click.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button
-                size="lg"
-                className="bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white"
-              >
-                Start Creating
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline">
-                Watch Demo
-              </Button>
+              <Link href="/main">
+                <Button
+                  size="lg"
+                  className="bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white"
+                >
+                  Start Creating
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="relative mx-auto aspect-video overflow-hidden rounded-xl border bg-background p-2 shadow-xl lg:order-last">
@@ -75,7 +75,7 @@ function HeroSection() {
               src="/placeholder.svg?height=550&width=550"
               width={550}
               height={550}
-              alt="walrus-v0 interface preview"
+              alt="Wal0 interface preview"
               className="aspect-video rounded-md object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20 flex items-end p-6">
@@ -101,7 +101,7 @@ export default function LandingPage() {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Layers className="h-6 w-6 text-purple-500 dark:text-purple-400" />
-            <span className="text-xl font-bold">walrus-v0</span>
+            <span className="text-xl font-bold">Wal0</span>
           </div>
           <nav className="hidden md:flex gap-6">
             <Link
@@ -124,15 +124,11 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link
-              href="#"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              Login
+            <Link href="/main">
+              <Button className="bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white">
+                Get Started
+              </Button>
             </Link>
-            <Button className="bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white">
-              Get Started
-            </Button>
           </div>
         </div>
       </header>
@@ -161,7 +157,7 @@ export default function LandingPage() {
                   <div className="w-24 h-1.5 bg-gradient-to-r from-purple-600 to-purple-400 dark:from-purple-400 dark:to-purple-300 rounded-full"></div>
                 </div>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl mt-4">
-                  Simple steps to create and deploy websites with walrus-v0
+                  Simple steps to create and deploy websites with Wal0
                 </p>
               </div>
             </div>
@@ -241,8 +237,7 @@ export default function LandingPage() {
                   <div className="w-24 h-1.5 bg-gradient-to-r from-purple-600 to-purple-400 dark:from-purple-400 dark:to-purple-300 rounded-full"></div>
                 </div>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl mt-4">
-                  See websites created by other users with walrus-v0 for
-                  inspiration
+                  See websites created by other users with Wal0 for inspiration
                 </p>
               </div>
             </div>
@@ -338,7 +333,7 @@ export default function LandingPage() {
                   <div className="w-24 h-1.5 bg-gradient-to-r from-purple-600 to-purple-400 dark:from-purple-400 dark:to-purple-300 rounded-full"></div>
                 </div>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl mt-4">
-                  Frequently asked questions about walrus-v0
+                  Frequently asked questions about Wal0
                 </p>
               </div>
             </div>
@@ -346,12 +341,12 @@ export default function LandingPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>
-                    Do I need programming knowledge to use walrus-v0?
+                    Do I need programming knowledge to use Wal0?
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>
-                    No. walrus-v0 is designed to be user-friendly for everyone,
+                    No. Wal0 is designed to be user-friendly for everyone,
                     regardless of your programming background. Simply describe
                     the website you want, and AI will generate the complete code
                     for you. Of course, if you know programming, you're free to
@@ -361,45 +356,30 @@ export default function LandingPage() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>
-                    What are the advantages of decentralized deployment?
-                  </CardTitle>
+                  <CardTitle>Pricing Model</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Decentralized deployment makes your website more secure and
-                    reliable, not dependent on a single server. This means
-                    higher availability, censorship resistance, and typically
-                    lower maintenance costs. The walrus network ensures your
-                    website is always online.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Can I use my own domain name?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Yes. While each project will get a walrus.app subdomain by
-                    default, you can easily connect your own custom domain to
-                    your walrus-v0 project.
+                    New users receive a complimentary $1 credit for generating
+                    web code with AI models. Deposit SUI coins via smart
+                    contracts, and your balance will convert to a USD equivalent
+                    based on the exchange rate at the time of deposit for AI
+                    model usage. There's no limit on the SUI deposit amount, and
+                    you can withdraw your balance through smart contracts.
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
                   <CardTitle>
-                    What features do the generated websites support?
+                    Do I own the Walrus site I publish in my wallet?
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>
-                    walrus-v0 can generate websites with various features,
-                    including but not limited to: static display pages, blogs,
-                    portfolios, simple e-commerce websites, contact forms, etc.
-                    As AI capabilities continue to improve, the supported
-                    features are constantly expanding.
+                    Yes, Wal0 can transfer ownership of the Walrus site to your
+                    wallet, but you need to pay the gas fee. You can experience
+                    the transfer process without gas fees on the testnet.
                   </p>
                 </CardContent>
               </Card>
@@ -411,9 +391,9 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Absolutely. You can return to the walrus-v0 platform at any
-                    time to edit and update your website, then redeploy. All
-                    changes will take effect immediately.
+                    Absolutely. You can return to the Wal0 platform at any time
+                    to edit and update your website, then redeploy. All changes
+                    will take effect immediately.
                   </p>
                 </CardContent>
               </Card>
@@ -423,10 +403,10 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t pb-12 md:pb-16 lg:pb-20">
+      <footer className="w-full border-t pb-6">
         <div className="pt-8 flex flex-col md:flex-row justify-center items-center">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} walrus-v0. All rights reserved.
+            &copy; {new Date().getFullYear()} Wal0. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 md:mt-0"></div>
         </div>
