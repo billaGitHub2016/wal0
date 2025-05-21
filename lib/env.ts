@@ -13,7 +13,7 @@ export const env = createEnv({
     NEXT_GITHUB_ID: z.string().min(1),
     NEXT_GITHUB_SECRET: z.string().min(1),
     WALLET_KEY: z.string().min(1),
-    SITE_BUILDER: z.string() || z.undefined(),
+    SITE_BUILDER: z.string(),
   },
   client: {
     NEXT_PUBLIC_PACKAGE_ID: z.string().min(1),
