@@ -27,11 +27,12 @@ export const publishComponentCode = async (
   onOutput: (output: string, type: "stdout" | "stderr") => void,
 ): Promise<PublishResult> => {
   try {
+    const siteBuilder = env.SITE_BUILDER || "site-builder-testnet"
     const executablePath = path.join(
       process.cwd(),
       "public",
       "site-builder",
-      "site-builder-testnet",
+      siteBuilder,
     )
 
     // 使用 spawn 来获取实时输出

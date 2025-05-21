@@ -52,3 +52,5 @@ data/config.json
 /script/contract-test.mjs
 
 /public/previews/
+
+/public/site-builder
