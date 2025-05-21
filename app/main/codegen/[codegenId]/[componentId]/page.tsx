@@ -449,7 +449,7 @@ export default function ComponentPage() {
                 className="w-full sm:w-auto relative cursor-not-allowed"
                 onClick={() => handlePublish("mainnet")}
               >
-                发布到 Mainnet
+                Publish To Mainnet
                 <Badge
                   variant="outline"
                   className="absolute ml-2 -top-4 -right-7"
