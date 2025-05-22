@@ -28,14 +28,16 @@ export const publishComponentCode = async (
 ): Promise<PublishResult> => {
   try {
     const siteBuilder = process.env.SITE_BUILDER || "site-builder-testnet"
+    // 使用环境变量或配置来指定基础路径
+    const basePath = process.env.SITE_BUILDER_PATH || process.cwd()
     const executablePath = path.join(
-      process.cwd(),
+      basePath,
       "public",
       "site-builder",
       siteBuilder,
     )
     const configPath = path.join(
-      process.cwd(),
+      basePath,
       "public",
       "site-builder",
       "sites-config.yaml",
@@ -100,19 +102,29 @@ export const updateComponentCode = async (
   onOutput: (output: string, type: "stdout" | "stderr") => void,
 ): Promise<PublishResult> => {
   try {
+    const siteBuilder = process.env.SITE_BUILDER || "site-builder-testnet"
     const executablePath = path.join(
       process.cwd(),
       "public",
       "site-builder",
-      "site-builder-testnet",
+      siteBuilder,
+    )
+
+    const configPath = path.join(
+      process.cwd(),
+      "public",
+      "site-builder",
+      "sites-config.yaml",
     )
 
     // 使用 spawn 来获取实时输出
     return new Promise((resolve, reject) => {
       const process = spawn(executablePath, [
+        "--config",
+        configPath,
         "update",
         "--epochs",
-        "1",
+        "20",
         "--force",
         folderPath,
         objectId,
