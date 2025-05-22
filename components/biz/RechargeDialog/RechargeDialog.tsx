@@ -68,8 +68,8 @@ export function RechargeDialog({
       })
       .catch(() => {
         toast({
-          title: "获取 SUI 价格失败",
-          description: "请稍后重试",
+          title: "Failed to get SUI price",
+          description: "Please try again later",
           variant: "destructive",
         })
       })
@@ -152,8 +152,8 @@ export function RechargeDialog({
 
               if (apiResult.code === 0) {
                 toast({
-                  title: "充值成功",
-                  description: `已成功充值 ${sui} SUI`,
+                  title: "Recharge successful",
+                  description: `Successfully recharged ${sui} SUI`,
                   variant: "default",
                 })
                 onRecharge({ sui, usd })
@@ -166,8 +166,8 @@ export function RechargeDialog({
           },
           onError: err => {
             toast({
-              title: "充值失败",
-              description: err.message || "请稍后重试",
+              title: "Recharge failed",
+              description: err.message || "Please try again later",
               variant: "destructive",
             })
           },
@@ -177,8 +177,8 @@ export function RechargeDialog({
       console.error(error)
       debugger
       toast({
-        title: "充值失败",
-        description: error.message || "请稍后重试",
+        title: "Recharge successful",
+        description: error.message || "Please try again later",
         variant: "destructive",
       })
     }
@@ -188,26 +188,26 @@ export function RechargeDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>充值</DialogTitle>
+          <DialogTitle>Recharge</DialogTitle>
           <DialogDescription>
-            输入充值金额，实时查看美元等值金额
+            Enter recharge amount to see real-time USD equivalent
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
-            <Label htmlFor="sui">充值 SUI 金额</Label>
+            <Label htmlFor="sui">SUI Recharge Amount</Label>
             <Input
               id="sui"
               type="number"
-              placeholder="输入 SUI 金额"
+              placeholder="Enter SUI Amount"
               defaultValue={suiAmount}
               onChange={e => debouncedSetSuiAmount(e.target.value)}
             />
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="usd">≈美元金额</Label>
+            <Label htmlFor="usd">≈USD Amount</Label>
             <Input
               id="usd"
               type="text"
@@ -220,9 +220,12 @@ export function RechargeDialog({
             <InfoIcon className="h-4 w-4" />
             <AlertDescription>
               <div className="mt-2 text-sm space-y-1">
-                <p>充值须知：</p>
-                <p>1. 充值金额全部转入钱包余额，不收取手续费</p>
-                <p>2. 钱包余额可提取，不收取手续费</p>
+                <p>Recharge Notice:</p>
+                <p>
+                  1. The full recharge amount will be transferred to your wallet
+                  balance, no handling fee
+                </p>
+                <p>2. Wallet balance can be withdrawn without handling fee</p>
               </div>
             </AlertDescription>
           </Alert>
@@ -237,10 +240,10 @@ export function RechargeDialog({
             {loading || loadingPrice ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                处理中
+                Handling
               </>
             ) : (
-              "确认充值"
+              "Confirm Recharge"
             )}
           </Button>
         </div>

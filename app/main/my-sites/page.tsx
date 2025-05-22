@@ -117,8 +117,8 @@ export default function MySitesPage() {
   const handleSend = async (site: any) => {
     if (!account) {
       toast({
-        title: "请先连接钱包",
-        description: "请先连接钱包后再进行操作",
+        title: "Please connect wallet first",
+        description: "Please connect your wallet to transfer the website",
         variant: "destructive",
       })
       return
@@ -144,17 +144,18 @@ export default function MySitesPage() {
       setIsSending(false)
       if (result.code === 0) {
         toast({
-          title: "发送成功",
-          description: "网站已成功发送到你的钱包地址",
+          title: "Transfer Success",
+          description:
+            "Your website has been transferred to your wallet successfully",
         })
         refetch()
       } else {
-        throw new Error(result.msg || "发送失败")
+        throw new Error(result.msg || "Transfer failed, please try again later")
       }
     } catch (error: any) {
       toast({
-        title: "发送失败",
-        description: error.message || "请稍后重试",
+        title: "Transfer Failed",
+        description: error.message || "Transfer failed, please try again later",
         variant: "destructive",
       })
     } finally {
@@ -169,16 +170,16 @@ export default function MySitesPage() {
         <Table>
           <TableHeader>
             <TableRow className="bg-muted/50">
-              <TableHead className="">访问地址</TableHead>
+              <TableHead className="">Website Url</TableHead>
               <TableHead className="w-[200px]">Sui Object ID</TableHead>
               <TableHead className="w-[200px]">Blob ID</TableHead>
               <TableHead className="text-right w-[200px]">
-                消耗 Gas(Mist)
+                Gas Fee(Mist)
               </TableHead>
-              <TableHead className="w-[100px]">网络</TableHead>
-              <TableHead className="w-[180px]">发布时间</TableHead>
-              <TableHead className="w-[180px]">更新时间</TableHead>
-              <TableHead className="w-[100px]">操作</TableHead>
+              <TableHead className="w-[100px]">Net Type</TableHead>
+              <TableHead className="w-[180px]">Create Date</TableHead>
+              <TableHead className="w-[180px]">Update Date</TableHead>
+              <TableHead className="w-[100px]">Operations</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -254,7 +255,7 @@ export default function MySitesPage() {
                       size="sm"
                       onClick={handleSend.bind(null, site)}
                     >
-                      <Send /> Send
+                      <Send /> Transfer
                     </Button>
                   )}
                 </TableCell>
@@ -339,7 +340,7 @@ export default function MySitesPage() {
               disabled={isSending}
               className="relative"
             >
-              {isSending ? "发送中..." : "确认"}
+              {isSending ? "Sending..." : "Confirm"}
               {selectedSite?.netType === "testnet" && (
                 <Badge
                   variant="secondary"

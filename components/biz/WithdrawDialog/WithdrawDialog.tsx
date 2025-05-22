@@ -77,8 +77,8 @@ export function WithdrawDialog({
     }
     if (sui > balance) {
       toast({
-        title: "提现金额超出余额",
-        description: `当前余额为 ${balance} SUI`,
+        title: "Withdrawal amount exceeds balance",
+        description: `Current balance is ${balance} SUI`,
         variant: "destructive",
       })
       return
@@ -127,8 +127,8 @@ export function WithdrawDialog({
 
               if (apiResult.code === 0) {
                 toast({
-                  title: "提现成功",
-                  description: `已成功提现 ${sui} SUI`,
+                  title: "Withdrawal successful",
+                  description: `Successfully withdrawn ${sui} SUI`,
                   variant: "default",
                 })
                 onWithdraw({ sui })
@@ -137,13 +137,13 @@ export function WithdrawDialog({
                 throw new Error(apiResult.msg)
               }
             } else {
-              throw new Error("提现失败")
+              throw new Error("Withdrawal failed")
             }
           },
           onError: err => {
             toast({
-              title: "提现失败",
-              description: err.message || "请稍后重试",
+              title: "Withdrawal failed",
+              description: err.message || "Please try again later",
               variant: "destructive",
             })
           },
@@ -152,8 +152,8 @@ export function WithdrawDialog({
     } catch (error: any) {
       console.error(error)
       toast({
-        title: "提现失败",
-        description: error.message || "请稍后重试",
+        title: "Withdrawal failed",
+        description: error.message || "Please try again later",
         variant: "destructive",
       })
     }
@@ -163,20 +163,21 @@ export function WithdrawDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>提现</DialogTitle>
+          <DialogTitle>Withdrawal</DialogTitle>
           <DialogDescription>
-            当前余额: {balance} SUI，输入提现金额，实时查看美元等值金额
+            Current balance: {balance} SUI, input withdrawal amount to see
+            real-time USD equivalent
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
-            <Label htmlFor="sui">提现 SUI 金额</Label>
+            <Label htmlFor="sui">SUI Withdrawal Amount</Label>
             <div className="flex gap-2">
               <Input
                 id="sui"
                 type="number"
-                placeholder="输入 SUI 金额"
+                placeholder="Input SUI Amount"
                 defaultValue={suiAmount}
                 onChange={e => debouncedSetSuiAmount(e.target.value)}
               />
@@ -188,7 +189,7 @@ export function WithdrawDialog({
                   debouncedSetSuiAmount(balance.toString())
                 }}
               >
-                最大
+                Max
               </Button>
             </div>
           </div>
@@ -197,10 +198,10 @@ export function WithdrawDialog({
             <InfoIcon className="h-4 w-4" />
             <AlertDescription>
               <div className="mt-2 text-sm space-y-1">
-                <p>提现须知：</p>
-                <p>1. 提现金额不能超过当前余额</p>
-                <p>2. 提现不收取手续费</p>
-                <p>3. 有充值记录的钱包才能提现</p>
+                <p>Withdrawal Notice:</p>
+                <p>1. Withdrawal amount cannot exceed current balance</p>
+                <p>2. No handling fee for withdrawals</p>
+                <p>3. Only wallets with recharge records can make withdrawals</p>
               </div>
             </AlertDescription>
           </Alert>
@@ -220,10 +221,10 @@ export function WithdrawDialog({
             {loading || loadingPrice ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                处理中
+                Handling
               </>
             ) : (
-              "确认提现"
+              "Confirm Withdrawal"
             )}
           </Button>
         </div>

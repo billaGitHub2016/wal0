@@ -2,22 +2,18 @@
 
 <h1 align="center" style="border-bottom: none">
     <b>
-        <a href="https://github.com/IamLiuLv/compoder">Wal0</a><br>
+        Wal0<br>
     </b>
-    AI-Powered Component Website Generator<br>
+    AI-Powered Website Generator<br>
 </h1>
 
-Wal0 is an open-source AI-powered component code generation engine that integrates modern frontend tech stacks with various AI model capabilities. You can use it to generate website and publish it to Walrus
+Wal0 is an open-source AI-powered website code generation engine that integrates modern frontend tech stacks with various AI model capabilities. You can use it to generate website and publish it to Walrus
 
 </div>
-
-[Wal0 Demo Video - Click to Watch](https://ai.iamlv.cn/compoder~.mp4)
 
 ## 🔥 Core Features:
 
 **Customizable Codegen (Component Code Generator)**: Freely customize component code generators based on various tech stacks, component libraries, scenarios, code specifications, and AI models.
-
-![compoder-custom-codegen](./assets/codegen.png)
 
 **1. Tech Stack Customization**
 
@@ -35,9 +31,10 @@ Customize Codegens for specific scenarios (such as Landing Pages, Email Template
 
 Customize Codegens based on specific code specifications (such as code file structure, styling approaches...)
 
-**5. AI Model Customization**
+**5. Publish site to Walrus
 
-Customize Codegens based on various AI models (such as OpenAI, Claude...)
+Publish and update your website to Walrus with one click
+
 
 ## 🌟 Basic Functions
 
@@ -53,21 +50,22 @@ Customize Codegens based on various AI models (such as OpenAI, Claude...)
 
 We are continuously improving Wal0 and will launch more exciting new features in the future:
 
-- Underlying support for Code To Figma: Convert code generated in Wal0 to Figma designs with one click
+✅ Utilize the Shadcn/UI component library as a template for page generation.
 
-- Underlying support for Figma To Code: Generate component code from Figma designs with one click, supporting conversion to components in different tech stacks
+✅ Support more efficient development workflows, such as code version iteration, online code fine-tuning, and real-time code preview sandbox.
 
-- Open Codegen Template Marketplace: Allow users to freely share, download, use, modify, and submit Codegen templates
+✅ Support one-click publishing of websites to Walrus, support updating already published Walrus sites, and support transferring already published Walrus sites to a specified wallet.
 
-- More scenario-specific Codegen templates: Such as Landing Pages, Email Templates, Admin Management Systems, APP Prototypes, Data Cards, Promotional Posters...
+✅ Support recharging SUI to the account for paying AI model invocation fees and Walrus site transaction fees.
 
-- ✅ More rich Codegen templates: Support more component libraries and templates, such as Mui, Antd, Element-Plus, Shadcn UI, company private component libraries...
+Develop more component library templates, such as Antd, Mui, etc.
 
-- ✅ More efficient development workflow: Support more efficient development workflows, such as code version iteration, online code fine-tuning, real-time code preview sandbox...
+Create a web template marketplace where users can publish their web code for other users to use.
 
-- ✅ Underlying implementation supporting customization based on various tech stacks, component libraries, scenarios, code specifications, AI models for component code generators
+Supports users to upload static web page files for publishing Walrus sites.
 
-- ✅ Prompt to code: Support component code generation from text & image interactions
+Suports user generate deapp and publish to Walrus.
+
 
 ## Quick Start
 
@@ -79,13 +77,17 @@ We are continuously improving Wal0 and will launch more exciting new features in
 - [pnpm](https://pnpm.io/) v9.x or higher
 - [Docker](https://www.docker.com/products/docker-desktop/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+- [Sui Client](https://docs.sui.io/guides/developer/getting-started/sui-install)
+- [Walrus Client](https://docs.sui.io/guides/developer/getting-started/sui-install)
+- [site-builder](https://docs.wal.app/walrus-sites/tutorial-install.html#installing-the-site-builder)
+- [bunjs](https://bun.sh/)
 
 **2. Clone Repository and Initialize Dependencies**
 
 ```bash
 # Clone the repository
-git clone https://github.com/IamLiuLv/compoder.git
-cd compoder
+git clone https://github.com/billaGitHub2016/wal0.git
+cd wal0
 
 # Install dependencies
 pnpm install
@@ -118,10 +120,13 @@ cp data/codegens.template.json data/codegens.json
 pnpm migrate-codegen
 ```
 
-**5. Start Storybook Business Component Documentation**
+**5. Copy site-builder to the public directory**
 
 ```bash
-pnpm storybook
+cd public
+mkdir site-builder
+
+# Copy site-builder to the public directory
 ```
 
 **6. Start Wal0**
@@ -133,25 +138,22 @@ pnpm dev
 **7. Start Code Rendering Sandbox (Artifacts)**
 
 ```bash
-# Start Antd rendering sandbox
-cd artifacts/antd-renderer
-pnpm dev
-
 # Start Shadcn UI rendering sandbox
 cd artifacts/shadcn-ui-renderer
 pnpm dev
-
-# Start Mui rendering sandbox
-cd artifacts/mui-renderer
-pnpm dev
-
-# Start Element Plus rendering sandbox
-cd artifacts/element-plus-renderer
-pnpm dev
 ```
+**8. Start Walrus site server**
 
-More detailed usage documentation, please refer to [CONTRIBUTING.md](./CONTRIBUTING.md).
+```bash
+# Clone the repository
+git clone https://github.com/MystenLabs/walrus-sites.git
+cd walrus-sites/portal
+bun install
 
+# Start Walrus site server
+cd server
+bun run start
+```
 ### Deployment with Docker
 
 Deploy your own feature-rich Wal0 instance using Docker. Our team is working on providing Docker images.
@@ -173,38 +175,3 @@ Wal0 is built on the following open-source projects:
 
 We deeply appreciate these powerful yet simple libraries provided by the community, which allow us to focus more on implementing product logic. We hope our project can also provide an easier-to-use AI component code generation engine for everyone.
 
-## Stay Ahead
-
-Star Wal0 on GitHub to receive notifications about new versions immediately.
-
-![compoder-star](./assets/star.gif)
-
-## Community and Support
-
-- [GitHub Discussions](https://github.com/IamLiuLv/compoder/discussions) 👉: Best for sharing feedback and asking questions.
-- [GitHub Issues](https://github.com/IamLiuLv/compoder/issues) 👉: Best for reporting bugs and suggesting features.
-- [WeChat](./assets/wechat.png): Scan the QR code below, add as a WeChat friend with the note: Wal0, to join the Wal0 community. We will share the latest updates, technical insights, component code generator templates, and look for long-term partners.
-
-<img src="./assets/wechat.png" alt="compoder" width="100px">
-
-## Contributing
-
-For contributors who want to contribute to Wal0, we welcome your PRs and Issues. We will review and provide feedback promptly.
-
-> Currently, Wal0 is in an early rapid iteration stage, and we welcome interested developers to join. We will maintain a long-term cooperative relationship.
-
-**Contributors**
-
-Thanks to all the contributors who have contributed to Wal0. Your efforts make Wal0 better.
-
-<a href="https://github.com/IamLiuLv/compoder/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=IamLiuLv/compoder" />
-</a>
-
-## Security Issues
-
-To protect your privacy, please avoid posting security-related issues on GitHub. Please send your questions to lv.xbb.xmn@gmail.com, and we will provide you with a more detailed response.
-
-## License
-
-This repository follows the [Wal0 Open Source License](./LICENSE), which is essentially Apache 2.0 with some additional restrictions.
