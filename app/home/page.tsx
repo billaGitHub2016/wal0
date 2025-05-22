@@ -173,7 +173,7 @@ export default function LandingPage() {
                   want, and AI will understand your needs
                 </p>
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/promot.png"
                   width={300}
                   height={200}
                   alt="Enter a prompt"
@@ -191,7 +191,7 @@ export default function LandingPage() {
                   online until you're satisfied
                 </p>
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/debug.png"
                   width={300}
                   height={200}
                   alt="Debug online"
@@ -209,7 +209,7 @@ export default function LandingPage() {
                   live on the walrus decentralized network
                 </p>
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/publish.png?height=200&width=300"
                   width={300}
                   height={200}
                   alt="One-click deploy"
@@ -244,7 +244,7 @@ export default function LandingPage() {
             <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
               <Card className="overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=200&width=400"
+                  src="/profile.png?height=200&width=400"
                   width={400}
                   height={200}
                   alt="Example website 1"
@@ -252,55 +252,63 @@ export default function LandingPage() {
                 />
                 <CardHeader>
                   <CardTitle>Personal Portfolio</CardTitle>
-                  <CardDescription>
-                    Beautiful website for a photographer to showcase work
-                  </CardDescription>
+                  <CardDescription>Person introduction</CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <Button variant="outline" size="sm" className="w-full">
-                    View Website
-                  </Button>
+                  <Link
+                    href="http://4jct0asvysooqni037wuofypuu7oa41z4rlu5oekoo11i3cwdp.wal.billa4161.xyz"
+                    target="_blank"
+                  >
+                    <Button variant="outline" size="sm" className="w-full">
+                      View Website
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
               <Card className="overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=200&width=400"
+                  src="/shop.png?height=200&width=400"
                   width={400}
                   height={200}
                   alt="Example website 2"
                   className="aspect-video object-cover"
                 />
                 <CardHeader>
-                  <CardTitle>Restaurant Website</CardTitle>
-                  <CardDescription>
-                    Restaurant website with menu and online reservation
-                    functionality
-                  </CardDescription>
+                  <CardTitle>E-Commerce</CardTitle>
+                  <CardDescription>Online store</CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <Button variant="outline" size="sm" className="w-full">
-                    View Website
-                  </Button>
+                  <Link
+                    href="http://30cf4d4bsut8l1t0y2nndxvfjat8gls51b589m3kal3o10bxez.wal.billa4161.xyz"
+                    target="_blank"
+                  >
+                    <Button variant="outline" size="sm" className="w-full">
+                      View Website
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
               <Card className="overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=200&width=400"
+                  src="/game.png?height=200&width=400"
                   width={400}
                   height={200}
                   alt="Example website 3"
                   className="aspect-video object-cover"
                 />
                 <CardHeader>
-                  <CardTitle>E-Commerce</CardTitle>
-                  <CardDescription>
-                    Online store for handcrafted items
-                  </CardDescription>
+                  <CardTitle>Game</CardTitle>
+                  <CardDescription>Minesweeper game</CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <Button variant="outline" size="sm" className="w-full">
-                    View Website
-                  </Button>
+                  <Link
+                    href="http://3pzcifwdu1m04b5j54attzwqd6wun9h51kh1zbxg75ozdthdsr.wal.billa4161.xyz"
+                    target="_blank"
+                  >
+                    <Button variant="outline" size="sm" className="w-full">
+                      View Website
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </div>

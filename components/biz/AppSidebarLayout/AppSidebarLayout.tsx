@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 
 import {
   Sidebar,
@@ -34,7 +35,7 @@ export function AppSidebarLayout({
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" asChild>
-                <a href="#">
+                <Link href="/home">
                   <div className="flex aspect-square size-10 items-center justify-start rounded-lg text-sidebar-primary-foreground">
                     <Logo
                       width={30}
@@ -50,7 +51,7 @@ export function AppSidebarLayout({
                       Website Code Generator
                     </div>
                   </div>
-                </a>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
