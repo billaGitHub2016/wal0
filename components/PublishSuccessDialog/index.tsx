@@ -47,9 +47,9 @@ export function PublishSuccessDialog({
               />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold">发布成功！</h3>
+          <h3 className="text-lg font-semibold">Publish Successful！</h3>
           <p className="text-sm text-muted-foreground text-center">
-            您的网站已经成功发布，现在可以通过以下链接访问：
+            Your website has been successfully published and can now be accessed via the following link:
           </p>
           <Button
             variant="outline"
