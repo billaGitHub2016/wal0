@@ -72,7 +72,7 @@ function HeroSection() {
           </div>
           <div className="relative mx-auto aspect-video overflow-hidden rounded-xl border bg-background p-2 shadow-xl lg:order-last">
             <Image
-              src="/overView.png?height=550&width=550"
+              src="/overview.png?height=550&width=550"
               width={550}
               height={550}
               alt="Wal0 interface preview"
@@ -311,12 +311,6 @@ export default function LandingPage() {
                   </Link>
                 </CardFooter>
               </Card>
-            </div>
-            <div className="flex justify-center">
-              <Button variant="outline">
-                View More Examples
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </div>
           </div>
         </section>
