@@ -41,6 +41,7 @@ import {
   LLMSelectorButton,
 } from "@/app/commons/LLMSelectorProvider"
 import { useWallet } from "@/components/provider/wallet-provider"
+import { useQueryClient } from "@tanstack/react-query"
 
 export default function CodegenDetailPage({
   params,
@@ -76,6 +77,7 @@ export default function CodegenDetailPage({
 
   const shouldShowList = useShowOnFirstData(componentCodeData?.items)
   const { balance } = useWallet()
+  const queryClient = useQueryClient()
 
   // handle LLM change
   const handleLLMChange = (
@@ -164,6 +166,7 @@ export default function CodegenDetailPage({
     } finally {
       setIsSubmitting(false)
       setStreamingContent("")
+      queryClient.invalidateQueries({ queryKey: ["wallet-balance"] })
     }
   }
 

@@ -96,7 +96,7 @@ export default function ComponentPage() {
   const editMutation = useEditComponentCode()
   const saveMutation = useSaveComponentCode()
   const [networkDialogOpen, setNetworkDialogOpen] = useState(false)
-  const { balance } = useWallet()
+  const { balance, refetchBalance } = useWallet()
 
   // handle LLM change
   const handleLLMChange = (
@@ -192,6 +192,7 @@ export default function ComponentPage() {
     } finally {
       setIsSubmitting(false)
       setStreamingContent("")
+      refetchBalance()
     }
   }
 

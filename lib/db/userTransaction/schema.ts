@@ -46,6 +46,11 @@ const UserTransactionSchema = new Schema(
     wallet: {
         type: String,
         required: true,
+    },
+    isSystemGift: {
+        type: Boolean,
+        required: true,
+        default: false,  // 默认为非系统赠送
     }
   },
   {

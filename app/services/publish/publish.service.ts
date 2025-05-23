@@ -53,15 +53,15 @@ export const publishComponentCode = async (
         "1",
         folderPath,
       ])
-      console.log("Executing:", executablePath)
-      console.log("With args:", process.spawnargs)
+      // console.log("Executing:", executablePath)
+      // console.log("With args:", process.spawnargs)
       // console.log("Working directory:", process.cwd())
       let fullOutput = ""
 
       process.stdout.on("data", data => {
         const output = data.toString()
         fullOutput += output
-        console.log(output)
+        // console.log(output)
         onOutput?.(output, "stdout")
       })
 
@@ -69,7 +69,7 @@ export const publishComponentCode = async (
       process.stderr.on("data", data => {
         const output = data.toString()
         fullOutput += output
-        console.error(output) // 记录到错误日志
+        // console.error(output) // 记录到错误日志
         onOutput?.(output, "stderr")
       })
 

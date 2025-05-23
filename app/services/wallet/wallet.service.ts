@@ -1,6 +1,7 @@
 import { getWalletByUserId } from "@/lib/db/wallet/selectors"
 import { updateWallet, createWallet } from "@/lib/db/wallet/mutations"
 import { UserTransactionModel } from "@/lib/db/userTransaction/schema"
+import { Wallet } from "@/lib/db/wallet/types"
 
 interface WalletBalanceResponse {
   code: number
@@ -72,7 +73,7 @@ export async function subWalletBalance(
     const rechargeRecords = await UserTransactionModel.find({
       userId,
       type: 0,
-      remainingSui: { $gt: 0 },
+      $or: [{ isSystemGift: true }, { remainingSui: { $gt: 0 } }],
     }).sort({ createdAt: 1 })
 
     if (!rechargeRecords.length) {
@@ -88,7 +89,11 @@ export async function subWalletBalance(
 
       const availableUsd = record.remainingAmount
       const deductUsd = Math.min(remainingUsdToDeduct, availableUsd)
-      const deductSui = deductUsd / record.exchangeRate
+      let deductSui = 0
+      if (!record.isSystemGift) {
+        // 非系统赠送的充值记录，根据汇率计算 SUI 金额
+        deductSui = deductUsd / record.exchangeRate
+      }
 
       // 更新充值记录的剩余金额
       record.remainingSui = Math.max(0, record.remainingSui - deductSui)
@@ -185,6 +190,63 @@ export async function subWalletSuiBalance(
     return {
       code: 1,
       msg: error.message || "扣减余额失败",
+    }
+  }
+}
+
+/**
+ * 添加系统赠送的余额
+ * @param userId 用户ID
+ * @param usdAmount 美元金额
+ * @param network 网络类型
+ */
+export async function addSystemGiftBalance(
+  userId: string,
+  usdAmount: number,
+  network: string,
+): Promise<WalletBalanceResponse> {
+  try {
+    // 1. 获取当前钱包
+    let currentWallet = await getWalletByUserId(userId)
+
+    // 如果钱包不存在，创建新钱包
+    if (!currentWallet) {
+      currentWallet = await createWallet(userId)
+    }
+
+    // 2. 创建系统赠送的充值记录
+    await UserTransactionModel.create({
+      userId,
+      sui: 0, // sui金额为0
+      amount: usdAmount,
+      exchangeRate: 0, // 由于不涉及sui，汇率设为0
+      type: 0, // 充值类型
+      remainingSui: 0,
+      remainingAmount: usdAmount, // 初始可用金额等于充值金额
+      digest: " ", // 使用时间戳生成唯一标识
+      network,
+      wallet: " ",
+      isSystemGift: true, // 标记为系统赠送
+    })
+
+    // 3. 更新钱包余额
+    const newUsdBalance = (currentWallet as any).usdBalance + usdAmount
+    const updatedWallet = await updateWallet(userId, {
+      usdBalance: newUsdBalance,
+    })
+
+    return {
+      code: 0,
+      data: {
+        suiBalance: (updatedWallet as any).suiBalance,
+        usdBalance: (updatedWallet as any).usdBalance,
+      },
+    }
+  } catch (error: any) {
+    console.error("添加系统赠送余额失败:", error)
+    return {
+      code: 1,
+      msg: error.message || "添加系统赠送余额失败",
     }
   }
 }

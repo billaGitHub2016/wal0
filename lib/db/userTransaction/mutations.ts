@@ -11,6 +11,7 @@ export async function createUserTransaction({
   network,
   remainingAmount,
   remainingSui,
+  isSystemGift,
 }: {
   userId: string
   sui: number
@@ -22,6 +23,7 @@ export async function createUserTransaction({
   network: string
   remainingSui: number
   remainingAmount: number
+  isSystemGift?: boolean
 }) {
   try {
     const transaction = await UserTransactionModel.create({
@@ -34,7 +36,8 @@ export async function createUserTransaction({
       digest,
       network,
       remainingSui,
-      remainingAmount
+      remainingAmount,
+      isSystemGift,
     })
 
     return {
