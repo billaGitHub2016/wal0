@@ -402,7 +402,11 @@ export default function ComponentPage() {
             <TooltipProvider key="draw-image">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    disabled={model ? model.indexOf("deepseek-v3") > -1 : false}
+                  >
                     <TldrawEdit
                       disabled={isSubmitting}
                       onSubmit={imageData => {
