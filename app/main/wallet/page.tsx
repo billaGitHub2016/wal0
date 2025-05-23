@@ -30,6 +30,46 @@ import { toast } from "@/hooks/use-toast"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useWallet } from "@/components/provider/wallet-provider"
 
+const TransactionSkeleton = () => (
+  <TableRow>
+    <TableCell>
+      <div className="h-4 w-16 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-20 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-20 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-20 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-24 bg-muted animate-pulse rounded" />
+    </TableCell>
+  </TableRow>
+)
+
+const AiUsageSkeleton = () => (
+  <TableRow>
+    <TableCell>
+      <div className="h-4 w-20 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-32 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-16 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-16 bg-muted animate-pulse rounded" />
+    </TableCell>
+    <TableCell>
+      <div className="h-4 w-24 bg-muted animate-pulse rounded" />
+    </TableCell>
+  </TableRow>
+)
+
 export default function WalletPage() {
   const { data: session } = useSession()
   const [isRechargeOpen, setIsRechargeOpen] = useState(false)
@@ -65,7 +105,7 @@ export default function WalletPage() {
   const { balance } = useWallet()
 
   // 获取交易记录
-  const { data: transactions } = useQuery({
+  const { data: transactions, isLoading: isTransactionsLoading } = useQuery({
     queryKey: ["transactions", session?.user?.id, transactionPage],
     queryFn: async () => {
       const res = await fetch(
@@ -85,7 +125,7 @@ export default function WalletPage() {
   })
 
   // 获取AI使用记录
-  const { data: aiUsage } = useQuery({
+  const { data: aiUsage, isLoading: isAiUsageLoading } = useQuery({
     queryKey: ["ai-usage", session?.user?.id, aiUsagePage],
     queryFn: async () => {
       const res = await fetch(
@@ -176,17 +216,29 @@ export default function WalletPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {transactions?.list?.map((tx: any) => (
-                  <TableRow key={tx._id}>
-                    <TableCell>
-                      {tx.type === 0 ? "Recharge" : "Withdrawal"}
+                {isTransactionsLoading ? (
+                  Array(3).fill(0).map((_, index) => (
+                    <TransactionSkeleton key={index} />
+                  ))
+                ) : transactions?.list?.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center py-8">
+                      No transaction records
                     </TableCell>
-                    <TableCell>{tx.sui.toFixed(2)} SUI</TableCell>
-                    <TableCell>${tx.amount.toFixed(2)}</TableCell>
-                    <TableCell>${tx.exchangeRate.toFixed(2)}</TableCell>
-                    <TableCell>{formatDate(tx.createdAt)}</TableCell>
                   </TableRow>
-                ))}
+                ) : (
+                  transactions?.list?.map((tx: any) => (
+                    <TableRow key={tx._id}>
+                      <TableCell>
+                        {tx.type === 0 ? "Recharge" : "Withdrawal"}
+                      </TableCell>
+                      <TableCell>{tx.sui.toFixed(2)} SUI</TableCell>
+                      <TableCell>${tx.amount.toFixed(2)}</TableCell>
+                      <TableCell>${tx.exchangeRate.toFixed(2)}</TableCell>
+                      <TableCell>{formatDate(tx.createdAt)}</TableCell>
+                    </TableRow>
+                  ))
+                )}
               </TableBody>
             </Table>
           </div>
@@ -271,20 +323,32 @@ export default function WalletPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {aiUsage?.list?.map((usage: any) => (
-                  <TableRow key={usage._id}>
-                    <TableCell>{usage.aiModel}</TableCell>
-                    <TableCell
-                      className="truncate max-w-[200px]"
-                      title={usage.prompt}
-                    >
-                      {usage.prompt}
+                {isAiUsageLoading ? (
+                  Array(3).fill(0).map((_, index) => (
+                    <AiUsageSkeleton key={index} />
+                  ))
+                ) : aiUsage?.list?.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center py-8">
+                      No AI usage records
                     </TableCell>
-                    <TableCell>{usage.tokens}</TableCell>
-                    <TableCell>${usage.cost.toFixed(4)}</TableCell>
-                    <TableCell>{formatDate(usage.createdAt)}</TableCell>
                   </TableRow>
-                ))}
+                ) : (
+                  aiUsage?.list?.map((usage: any) => (
+                    <TableRow key={usage._id}>
+                      <TableCell>{usage.aiModel}</TableCell>
+                      <TableCell
+                        className="truncate max-w-[200px]"
+                        title={usage.prompt}
+                      >
+                        {usage.prompt}
+                      </TableCell>
+                      <TableCell>{usage.tokens}</TableCell>
+                      <TableCell>${usage.cost.toFixed(4)}</TableCell>
+                      <TableCell>{formatDate(usage.createdAt)}</TableCell>
+                    </TableRow>
+                  ))
+                )}
               </TableBody>
             </Table>
           </div>
