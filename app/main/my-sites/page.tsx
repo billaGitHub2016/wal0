@@ -318,9 +318,10 @@ export default function MySitesPage() {
           <AlertDialogHeader>
             <AlertDialogTitle>Confirm to transfer website</AlertDialogTitle>
             <AlertDialogDescription>
-              是否要把该网站发送到当前连接的钱包地址{" "}
-              {account?.address.slice(0, 6)}...{account?.address.slice(-6)}？
-              After transferring the website to your wallet, you can bind the
+              Would you like to send this website to the currently connected
+              wallet address {account?.address.slice(0, 6)}...
+              {account?.address.slice(-6)}？ After transferring the website to
+              your wallet, you can bind the &nbsp;
               <Button
                 variant="link"
                 className="p-0 h-auto font-normal"
@@ -328,13 +329,13 @@ export default function MySitesPage() {
                   window.open("https://testnet.suins.io/", "_blank")
                 }
               >
-                suins name
+                SuiNS Name
               </Button>
               .This operation requires payment of transaction gas fees.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>取消</AlertDialogCancel>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleConfirmSend}
               disabled={isSending}
