@@ -18,6 +18,7 @@ import {
   Terminal,
   MessageSquare,
 } from "lucide-react"
+import { ThemeToggle } from "@/components/biz/ThemeToggle"
 
 // Animated text component for the hero section
 function AnimatedTitle({ text }: { text: string }) {
@@ -25,7 +26,6 @@ function AnimatedTitle({ text }: { text: string }) {
     <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
       <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
         Use <span className="text-purple-500 dark:text-purple-400">Wal0</span>{" "}
-        to publish
       </span>{" "}
       <span className="inline-block animate-fade-in-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
         to publish
@@ -124,6 +124,7 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <Link href="/main">
               <Button className="bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white">
                 Get Started
