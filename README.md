@@ -154,6 +154,21 @@ bun install
 cd server
 bun run start
 ```
+**9. Publish contract to testnet
+
+```bash
+# build contract
+cd move
+sui move build
+
+# publish contract
+sui client publish --gas-budget 100000000 
+```
+
+# Start Walrus site server
+cd server
+bun 
+
 ### Deployment with Docker
 
 Deploy your own feature-rich Wal0 instance using Docker. Our team is working on providing Docker images.
