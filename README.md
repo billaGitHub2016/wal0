@@ -154,7 +154,8 @@ bun install
 cd server
 bun run start
 ```
-**9. Publish contract to testnet
+
+**9. Publish contract to testnet**
 
 ```bash
 # build contract

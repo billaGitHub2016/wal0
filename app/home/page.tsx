@@ -78,8 +78,8 @@ function HeroSection() {
               alt="Wal0 interface preview"
               className="rounded-md object-cover"
             />
-            <div className="absolute flex items-end p-6">
-              <div className="w-full bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+            <div className="absolute flex items-end p-1">
+              <div className="w-full bg-background/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
                 <div className="flex items-center gap-2 text-sm text-purple-500 dark:text-purple-400 font-medium">
                   <Terminal className="h-4 w-4" />
                   <span>Enter prompt, AI generates website</span>

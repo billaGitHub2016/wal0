@@ -272,7 +272,7 @@ export default function CodegenDetailPage({
               "w-full mx-auto px-6",
             )}
           >
-            <p className="text-lg font-bold mb-4">Component List</p>
+            <p className="text-lg font-bold mb-4">Page List</p>
             <ComponentCodeFilterContainer
               total={componentCodeData?.total || 0}
               currentPage={currentPage}
