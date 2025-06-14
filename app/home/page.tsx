@@ -280,7 +280,7 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardFooter>
                   <Link
-                    href="http://30cf4d4bsut8l1t0y2nndxvfjat8gls51b589m3kal3o10bxez.wal.billa4161.xyz"
+                    href="http://1dhpgeta5hbbkm8xe5qciumndc4l95oilbp7wuspn9bipicsb4.wal.billa4161.xyz"
                     target="_blank"
                   >
                     <Button variant="outline" size="sm" className="w-full">
