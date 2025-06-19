@@ -120,7 +120,7 @@ export async function GET(request: NextRequest) {
                         type: "complete",
                         result: {
                           siteUrl:
-                            `http://${result.localPortalId}.localhost:3005` ||
+                            `http://${result.localPortalId}.${process.env.WALRUS_PORTAL_HOST}` ||
                             "",
                         },
                       })}\n\n`,
