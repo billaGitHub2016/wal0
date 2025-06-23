@@ -6,6 +6,7 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import { QueryProvider } from "@/components/provider/query-provider"
 import SuiProvider from "@/components/provider/sui-provider"
+import Script from "next/script"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +32,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LVTWGXT3Z6" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LVTWGXT3Z6');
+          `}
+        </Script>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
